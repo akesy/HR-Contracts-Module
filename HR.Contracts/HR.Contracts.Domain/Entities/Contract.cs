@@ -4,7 +4,7 @@
     {
         public string Name { get; set; }
 
-        public EmployeeType EmployeeType { get; set; }
+        public ContractType Type { get; set; }
 
         public int Experience { get; set; }
 

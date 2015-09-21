@@ -40,8 +40,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abstract\ISalaryCalculator.cs" />
+    <Compile Include="Abstract\ISalaryPolicy.cs" />
+    <Compile Include="Concrete\DefaultSalaryCalculator.cs" />
+    <Compile Include="Concrete\DefaultSalaryPolicy.cs" />
     <Compile Include="Entities\Contract.cs" />
-    <Compile Include="Enums\EmployeeType.cs" />
+    <Compile Include="Enums\ContractType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

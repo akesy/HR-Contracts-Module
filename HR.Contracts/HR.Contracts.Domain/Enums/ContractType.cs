@@ -1,4 +1,4 @@
-﻿enum EmployeeType
+﻿enum ContractType
 {
     Developer,
 
