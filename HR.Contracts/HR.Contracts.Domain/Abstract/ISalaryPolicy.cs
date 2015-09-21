@@ -2,6 +2,6 @@
 {
     public interface ISalaryPolicy
     {
-        double GetMinimumWage(ContractType contractType, int experience);
+        decimal GetMinimumWage(ContractType contractType, int experience);
     }
 }

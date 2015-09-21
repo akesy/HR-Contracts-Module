@@ -1,5 +1,7 @@
 ﻿using HR.Contracts.Domain.Abstract;
+using HR.Contracts.Domain.Concrete;
 using HR.Contracts.Domain.Entities;
+using HR.Contracts.Services.Abstract;
 using HR.Contracts.Services.Concrete;
 using HR.Contracts.Services.Dto;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -20,7 +22,7 @@ namespace HR.Contracts.UnitTests
         {
             var contract = new DtoContract { Name = "C1", Type = ContractType.Developer, Experience = 3, Salary = 5375 };
             var mock = new Mock<IRepository<Contract>>();
-            var service = new ContractService(mock.Object);
+            IContractService service = new ContractService(mock.Object, new DefaultSalaryPolicy(), new DefaultSalaryCalculator());
 
             var expected = true;
             var actual = service.AddContract(contract);
@@ -34,9 +36,9 @@ namespace HR.Contracts.UnitTests
         [TestMethod]
         public void GivenInvalidContractWhenAddingThenContractIsNotAdded()
         {
-            var contract = new DtoContract();
+            var contract = new DtoContract { Experience = 1 };
             var mock = new Mock<IRepository<Contract>>();
-            var service = new ContractService(mock.Object);
+            IContractService service = new ContractService(mock.Object, new DefaultSalaryPolicy(), new DefaultSalaryCalculator());
 
             var expected = false;
             var actual = service.AddContract(contract);

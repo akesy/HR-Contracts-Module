@@ -11,14 +11,20 @@ namespace HR.Contracts.Services.Concrete
     {
         private readonly IRepository<Contract> contractRepository;
 
-        public ContractService(IRepository<Contract> contractRepository)
+        private readonly ISalaryPolicy policy;
+
+        private readonly ISalaryCalculator calculator;
+
+        public ContractService(IRepository<Contract> contractRepository, ISalaryPolicy policy, ISalaryCalculator calculator)
         {
             this.contractRepository = contractRepository;
+            this.policy = policy;
+            this.calculator = calculator;
         }
 
         public bool AddContract(DtoContract contract)
         {
-            var validator = new ContractValidator();
+            var validator = new ContractValidator(this.policy, this.calculator);
             var result = validator.Validate(contract);
             if (!result.IsValid)
             {

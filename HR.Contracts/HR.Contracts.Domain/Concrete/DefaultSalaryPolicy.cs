@@ -5,7 +5,7 @@ namespace HR.Contracts.Domain.Concrete
 {
     public class DefaultSalaryPolicy : ISalaryPolicy
     {
-        public double GetMinimumWage(ContractType contractType, int experience)
+        public decimal GetMinimumWage(ContractType contractType, int experience)
         {
             // TODO: Move hardcoded values to config file.
 
@@ -44,7 +44,7 @@ namespace HR.Contracts.Domain.Concrete
             }
             else
             {
-                throw new ArgumentException("The contract type in unknown.", "contractType");
+                throw new ArgumentException("The contract type is unknown.", "contractType");
             }
         }
     }
