@@ -1,6 +1,6 @@
 ﻿namespace HR.Contracts.Domain.Abstract
 {
-    interface ISalaryPolicy
+    public interface ISalaryPolicy
     {
         double GetMinimumWage(ContractType contractType, int experience);
     }

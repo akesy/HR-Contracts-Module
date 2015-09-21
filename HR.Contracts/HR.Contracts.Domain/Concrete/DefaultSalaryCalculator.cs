@@ -3,7 +3,7 @@ using System;
 
 namespace HR.Contracts.Domain.Concrete
 {
-    class DefaultSalaryCalculator : ISalaryCalculator
+    public class DefaultSalaryCalculator : ISalaryCalculator
     {
         public decimal Calculate(ContractType contractType, int experience, decimal minWage)
         {

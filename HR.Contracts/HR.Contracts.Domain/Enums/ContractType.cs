@@ -1,4 +1,4 @@
-﻿enum ContractType
+﻿public enum ContractType
 {
     Developer,
 

@@ -3,7 +3,7 @@ using System;
 
 namespace HR.Contracts.Domain.Concrete
 {
-    class DefaultSalaryPolicy : ISalaryPolicy
+    public class DefaultSalaryPolicy : ISalaryPolicy
     {
         public double GetMinimumWage(ContractType contractType, int experience)
         {

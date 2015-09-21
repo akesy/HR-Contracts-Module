@@ -1,6 +1,6 @@
 ﻿namespace HR.Contracts.Domain.Abstract
 {
-    interface ISalaryCalculator
+    public interface ISalaryCalculator
     {
         decimal Calculate(ContractType contractType, int experience, decimal minWage);
     }
