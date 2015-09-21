@@ -1,9 +1,9 @@
-﻿using System;
+﻿using AutoMapper;
 using HR.Contracts.Domain.Abstract;
 using HR.Contracts.Domain.Entities;
 using HR.Contracts.Services.Abstract;
 using HR.Contracts.Services.Dto;
-using AutoMapper;
+using HR.Contracts.Services.Validators;
 
 namespace HR.Contracts.Services.Concrete
 {
@@ -16,12 +16,20 @@ namespace HR.Contracts.Services.Concrete
             this.contractRepository = contractRepository;
         }
 
-        public void AddContract(DtoContract contract)
+        public bool AddContract(DtoContract contract)
         {
-            // TODO: Validate the contract.
+            var validator = new ContractValidator();
+            var result = validator.Validate(contract);
+            if (!result.IsValid)
+            {
+                return false;
+            }
+
             var entity = Mapper.Map<Contract>(contract);
             this.contractRepository.Add(entity);
             this.contractRepository.SaveChanges();
+
+            return true;
         }
     }
 }

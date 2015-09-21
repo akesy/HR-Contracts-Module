@@ -7,6 +7,6 @@ namespace HR.Contracts.Services.Abstract
     public interface IContractService
     {
         [OperationContract]
-        void AddContract(DtoContract contract);
+        bool AddContract(DtoContract contract);
     }
 }
