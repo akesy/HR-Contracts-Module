@@ -31,6 +31,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper, Version=4.0.4.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.4.0.4\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
@@ -44,8 +48,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Abstract\IContractService.cs" />
+    <Compile Include="Concrete\AutoMapperConfig.cs" />
     <Compile Include="Concrete\ContractService.cs" />
+    <Compile Include="Dto\DtoContract.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HR.Contracts.Domain\HR.Contracts.Domain.csproj">
+      <Project>{e884d07e-a0d7-4b36-b793-adb31b6d0471}</Project>
+      <Name>HR.Contracts.Domain</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abstract\IRepository.cs" />
     <Compile Include="Abstract\ISalaryCalculator.cs" />
     <Compile Include="Abstract\ISalaryPolicy.cs" />
     <Compile Include="Concrete\DefaultSalaryCalculator.cs" />

@@ -8,6 +8,8 @@ namespace HR.Contracts.Services.Host
     {
         static void Main(string[] args)
         {
+            AutoMapperConfig.RegisterMappings();
+
             using (var host = new ServiceHost(typeof(ContractService)))
             {
                 host.Open();

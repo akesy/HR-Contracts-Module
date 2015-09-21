@@ -1,6 +1,6 @@
-﻿namespace HR.Contracts.Domain.Entities
+﻿namespace HR.Contracts.Services.Dto
 {
-    public class Contract
+    public class DtoContract
     {
         public string Name { get; set; }
 
