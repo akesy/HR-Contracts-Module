@@ -1,0 +1,6 @@
+﻿enum EmployeeType
+{
+    Developer,
+
+    Tester
+}
