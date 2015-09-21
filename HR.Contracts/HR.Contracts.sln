@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HR.Contracts.Domain", "HR.C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HR.Contracts.UnitTests", "HR.Contracts.UnitTests\HR.Contracts.UnitTests.csproj", "{E7CC49E8-4F6A-4401-B358-DF9F8821DE71}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HR.Contracts.Services", "HR.Contracts.Services\HR.Contracts.Services.csproj", "{44ADB5CF-B6F4-4C3E-9E22-C2F246A42043}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HR.Contracts.Services.Host", "HR.Contracts.Services.Host\HR.Contracts.Services.Host.csproj", "{4C59A908-6940-4C4E-9AB6-B74334ACED0D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{E7CC49E8-4F6A-4401-B358-DF9F8821DE71}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E7CC49E8-4F6A-4401-B358-DF9F8821DE71}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E7CC49E8-4F6A-4401-B358-DF9F8821DE71}.Release|Any CPU.Build.0 = Release|Any CPU
+		{44ADB5CF-B6F4-4C3E-9E22-C2F246A42043}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44ADB5CF-B6F4-4C3E-9E22-C2F246A42043}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44ADB5CF-B6F4-4C3E-9E22-C2F246A42043}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44ADB5CF-B6F4-4C3E-9E22-C2F246A42043}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4C59A908-6940-4C4E-9AB6-B74334ACED0D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C59A908-6940-4C4E-9AB6-B74334ACED0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C59A908-6940-4C4E-9AB6-B74334ACED0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C59A908-6940-4C4E-9AB6-B74334ACED0D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
