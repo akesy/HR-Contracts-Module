@@ -55,6 +55,13 @@
     <Compile Include="Concrete\AutoMapperConfig.cs" />
     <Compile Include="Concrete\ContractService.cs" />
     <Compile Include="Dto\DtoContract.cs" />
+    <Compile Include="Filters\Contracts\ContractExperienceFilter.cs" />
+    <Compile Include="Filters\Contracts\ContractFilter.cs" />
+    <Compile Include="Filters\Contracts\ContractSalaryFilter.cs" />
+    <Compile Include="Filters\Contracts\ContractTypeFilter.cs" />
+    <Compile Include="Filters\CollectionFilter.cs" />
+    <Compile Include="Filters\CollectionFilterInfo.cs" />
+    <Compile Include="Filters\Contracts\ContractNameFilter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Validators\ContractValidator.cs" />
   </ItemGroup>
