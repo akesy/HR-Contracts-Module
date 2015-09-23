@@ -1,22 +1,18 @@
-﻿using HR.Contracts.Services.Dto;
-using System;
-using System.Linq;
+﻿using System.Linq;
+using HR.Contracts.Services.Dto;
 
 namespace HR.Contracts.Services.Filters.Contracts
 {
     class ContractExperienceFilter : CollectionFilter<DtoContract>
     {
-        private const string FilterName = "ContractExperience";
-
         public ContractExperienceFilter(CollectionFilter<DtoContract> successor)
         {
             this.Successor = successor;
         }
 
-        public override IQueryable<DtoContract> Filter(CollectionFilterInfo filterInfo, IQueryable<DtoContract> items)
+        public override IQueryable<DtoContract> Filter(ColumnFilterInfo filterInfo, IQueryable<DtoContract> items)
         {
-            if (string.Equals(filterInfo.Name, FilterName, StringComparison.OrdinalIgnoreCase)
-                && filterInfo.Value != null)
+            if (filterInfo.Type == ColumnFilterType.ContractExperience && filterInfo.Value != null)
             {
                 return items.Where(item => item.Experience.Equals(filterInfo.Value));
             }

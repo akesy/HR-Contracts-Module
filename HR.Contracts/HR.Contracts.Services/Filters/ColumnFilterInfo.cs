@@ -1,8 +1,8 @@
 ﻿namespace HR.Contracts.Services.Filters
 {
-    public class CollectionFilterInfo
+    public class ColumnFilterInfo
     {
-        public string Name { get; set; }
+        public ColumnFilterType Type { get; set; }
 
         public object Value { get; set; }
     }

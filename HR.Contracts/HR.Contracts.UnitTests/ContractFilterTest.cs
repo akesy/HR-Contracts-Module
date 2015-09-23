@@ -1,9 +1,9 @@
-﻿using HR.Contracts.Services.Dto;
+﻿using System.Collections.Generic;
+using System.Linq;
+using HR.Contracts.Services.Dto;
 using HR.Contracts.Services.Filters;
 using HR.Contracts.Services.Filters.Contracts;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace HR.Contracts.UnitTests
 {
@@ -19,9 +19,9 @@ namespace HR.Contracts.UnitTests
                 new DtoContract { Name = "C2", Type = ContractType.Developer, Experience = 5, Salary = 8000 },
                 new DtoContract { Name = "C3", Type = ContractType.Tester, Experience = 2, Salary = 3000 }
             }.AsQueryable();
-            var filterCriteria = new List<CollectionFilterInfo>
+            var filterCriteria = new List<ColumnFilterInfo>
             {
-                new CollectionFilterInfo { Name = "ContractName", Value = "C1" }
+                new ColumnFilterInfo { Type = ColumnFilterType.ContractName, Value = "C1" }
             };
             var contractFilter = new ContractFilter();
 
@@ -41,9 +41,9 @@ namespace HR.Contracts.UnitTests
                 new DtoContract { Name = "C2", Type = ContractType.Developer, Experience = 5, Salary = 8000 },
                 new DtoContract { Name = "C3", Type = ContractType.Tester, Experience = 2, Salary = 3000 }
             }.AsQueryable();
-            var filterCriteria = new List<CollectionFilterInfo>
+            var filterCriteria = new List<ColumnFilterInfo>
             {
-                new CollectionFilterInfo { Name = "ContractType", Value = ContractType.Developer }
+                new ColumnFilterInfo { Type = ColumnFilterType.ContractType, Value = ContractType.Developer }
             };
             var contractFilter = new ContractFilter();
 
@@ -65,9 +65,9 @@ namespace HR.Contracts.UnitTests
                 new DtoContract { Name = "C2", Type = ContractType.Developer, Experience = 5, Salary = 8000 },
                 new DtoContract { Name = "C3", Type = ContractType.Tester, Experience = 3, Salary = 3000 }
             }.AsQueryable();
-            var filterCriteria = new List<CollectionFilterInfo>
+            var filterCriteria = new List<ColumnFilterInfo>
             {
-                new CollectionFilterInfo { Name = "ContractExperience", Value = 3 }
+                new ColumnFilterInfo { Type = ColumnFilterType.ContractExperience, Value = 3 }
             };
             var contractFilter = new ContractFilter();
 
@@ -89,9 +89,9 @@ namespace HR.Contracts.UnitTests
                 new DtoContract { Name = "C2", Type = ContractType.Developer, Experience = 5, Salary = 8000 },
                 new DtoContract { Name = "C3", Type = ContractType.Tester, Experience = 5, Salary = 5000 }
             }.AsQueryable();
-            var filterCriteria = new List<CollectionFilterInfo>
+            var filterCriteria = new List<ColumnFilterInfo>
             {
-                new CollectionFilterInfo { Name = "ContractSalary", Value = 5000m }
+                new ColumnFilterInfo { Type = ColumnFilterType.ContractSalary, Value = 5000m }
             };
             var contractFilter = new ContractFilter();
 
@@ -113,10 +113,10 @@ namespace HR.Contracts.UnitTests
                 new DtoContract { Name = "C2", Type = ContractType.Developer, Experience = 5, Salary = 8000 },
                 new DtoContract { Name = "C3", Type = ContractType.Tester, Experience = 2, Salary = 3000 }
             }.AsQueryable();
-            var filterCriteria = new List<CollectionFilterInfo>
+            var filterCriteria = new List<ColumnFilterInfo>
             {
-                new CollectionFilterInfo { Name = "ContractName", Value = "C1" },
-                new CollectionFilterInfo { Name = "ContractType", Value = ContractType.Tester }
+                new ColumnFilterInfo { Type = ColumnFilterType.ContractName, Value = "C1" },
+                new ColumnFilterInfo { Type = ColumnFilterType.ContractType, Value = ContractType.Tester }
             };
             var contractFilter = new ContractFilter();
 
@@ -136,10 +136,10 @@ namespace HR.Contracts.UnitTests
                 new DtoContract { Name = "C2", Type = ContractType.Developer, Experience = 4, Salary = 8000 },
                 new DtoContract { Name = "C3", Type = ContractType.Tester, Experience = 5, Salary = 5500 }
             }.AsQueryable();
-            var filterCriteria = new List<CollectionFilterInfo>
+            var filterCriteria = new List<ColumnFilterInfo>
             {
-                new CollectionFilterInfo { Name = "ContractType", Value = ContractType.Tester },
-                new CollectionFilterInfo { Name = "ContractExperience", Value = 4 }
+                new ColumnFilterInfo { Type = ColumnFilterType.ContractType, Value = ContractType.Tester },
+                new ColumnFilterInfo { Type = ColumnFilterType.ContractExperience, Value = 4 }
             };
             var contractFilter = new ContractFilter();
 
@@ -159,10 +159,10 @@ namespace HR.Contracts.UnitTests
                 new DtoContract { Name = "C2", Type = ContractType.Developer, Experience = 4, Salary = 8000 },
                 new DtoContract { Name = "C3", Type = ContractType.Tester, Experience = 4, Salary = 5500 }
             }.AsQueryable();
-            var filterCriteria = new List<CollectionFilterInfo>
+            var filterCriteria = new List<ColumnFilterInfo>
             {
-                new CollectionFilterInfo { Name = "ContractExperience", Value = 4 },
-                new CollectionFilterInfo { Name = "ContractSalary", Value = 5000m }
+                new ColumnFilterInfo { Type = ColumnFilterType.ContractExperience, Value = 4 },
+                new ColumnFilterInfo { Type = ColumnFilterType.ContractSalary, Value = 5000m }
             };
             var contractFilter = new ContractFilter();
 

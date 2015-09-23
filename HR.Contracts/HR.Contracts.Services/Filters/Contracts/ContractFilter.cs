@@ -1,6 +1,6 @@
-﻿using HR.Contracts.Services.Dto;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
+using HR.Contracts.Services.Dto;
 
 namespace HR.Contracts.Services.Filters.Contracts
 {
@@ -16,7 +16,7 @@ namespace HR.Contracts.Services.Filters.Contracts
             this.headFilter = new ContractNameFilter(typeFilter);
         }
 
-        public IQueryable<DtoContract> Filter(IQueryable<DtoContract> items, IEnumerable<CollectionFilterInfo> filterCriteria)
+        public IQueryable<DtoContract> Filter(IQueryable<DtoContract> items, IEnumerable<ColumnFilterInfo> filterCriteria)
         {
             var result = items.AsQueryable();
             foreach (var filterCriterion in filterCriteria)
