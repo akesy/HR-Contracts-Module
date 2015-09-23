@@ -41,7 +41,9 @@ namespace HR.Contracts.Services.Concrete
 
         public IEnumerable<DtoContract> GetAllContracts()
         {
-            return this.contractRepository.Get().Select(c => Mapper.Map<DtoContract>(c));
+            var contracts = this.contractRepository.Get().ToList();
+            var dtoContracts = contracts.Select(c => Mapper.Map<DtoContract>(c));
+            return dtoContracts;
         }
     }
 }

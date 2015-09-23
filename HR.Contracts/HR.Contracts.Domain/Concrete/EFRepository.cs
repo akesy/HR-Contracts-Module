@@ -5,7 +5,7 @@ using HR.Contracts.Domain.Abstract;
 
 namespace HR.Contracts.Domain.Concrete
 {
-    class EFRepository<TEntity> : IRepository<TEntity>
+    public class EFRepository<TEntity> : IRepository<TEntity>
         where TEntity : class, IEntity
     {
         private readonly DbContext context;

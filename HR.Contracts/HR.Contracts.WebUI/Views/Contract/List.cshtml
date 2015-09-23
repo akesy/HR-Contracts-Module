@@ -1,7 +1,31 @@
-﻿
+﻿@model HR.Contracts.WebUI.ContractService.DtoContract[]
+
+@using HR.Contracts.WebUI.Resources;
+
 @{
     ViewBag.Title = "List";
 }
 
 <h2>List</h2>
 
+<table class="table table-striped">
+    <thead>
+        <th>@Labels.ContractName</th>
+        <th>@Labels.ContractType</th>
+        <th>@Labels.ContractExperience</th>
+        <th>@Labels.ContractSalary</th>
+    </thead>
+    <tbody>
+        @foreach (var contract in Model)
+        {
+            <tr>
+                <td>@contract.Name</td>
+                <td>@contract.Type</td>
+                <td>@contract.Experience</td>
+                <td>@contract.Salary</td>
+            </tr>            
+        }
+    </tbody>
+    <tfoot>
+    </tfoot>
+</table>

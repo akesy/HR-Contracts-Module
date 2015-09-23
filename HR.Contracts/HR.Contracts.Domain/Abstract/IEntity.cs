@@ -1,6 +1,6 @@
 ﻿namespace HR.Contracts.Domain.Abstract
 {
-    interface IEntity
+    public interface IEntity
     {
         int Id { get; set; }
     }

@@ -172,5 +172,51 @@ namespace HR.Contracts.UnitTests
             Assert.AreEqual(1, actual.Count());
             Assert.AreEqual(expected, actual.Single().Name, true);
         }
+
+        [TestMethod]
+        public void GivenListOfContractsWhenFilteringByNullNameThenAllItemsAreReturned()
+        {
+            var contracts = new List<DtoContract>
+            {
+                new DtoContract { Name = "C1", Type = ContractType.Tester, Experience = 4, Salary = 5000 },
+                new DtoContract { Name = "C2", Type = ContractType.Developer, Experience = 4, Salary = 8000 },
+                new DtoContract { Name = "C3", Type = ContractType.Tester, Experience = 4, Salary = 5500 }
+            }.AsQueryable();
+            var filterCriteria = new List<ColumnFilterInfo>
+            {
+                new ColumnFilterInfo { Type = ColumnFilterType.ContractName }
+            };
+            var contractFilter = new ContractFilter();
+
+            var actual = contractFilter.Filter(contracts, filterCriteria);
+
+            Assert.AreEqual(3, actual.Count());
+            Assert.AreEqual("C1", actual.ElementAt(0).Name, true);
+            Assert.AreEqual("C2", actual.ElementAt(1).Name, true);
+            Assert.AreEqual("C3", actual.ElementAt(2).Name, true);
+        }
+
+        [TestMethod]
+        public void GivenListOfContractsWhenFilteringByEmptyNameThenAllItemsAreReturned()
+        {
+            var contracts = new List<DtoContract>
+            {
+                new DtoContract { Name = "C1", Type = ContractType.Tester, Experience = 4, Salary = 5000 },
+                new DtoContract { Name = "C2", Type = ContractType.Developer, Experience = 4, Salary = 8000 },
+                new DtoContract { Name = "C3", Type = ContractType.Tester, Experience = 4, Salary = 5500 }
+            }.AsQueryable();
+            var filterCriteria = new List<ColumnFilterInfo>
+            {
+                new ColumnFilterInfo { Type = ColumnFilterType.ContractName, Value = string.Empty }
+            };
+            var contractFilter = new ContractFilter();
+
+            var actual = contractFilter.Filter(contracts, filterCriteria);
+
+            Assert.AreEqual(3, actual.Count());
+            Assert.AreEqual("C1", actual.ElementAt(0).Name, true);
+            Assert.AreEqual("C2", actual.ElementAt(1).Name, true);
+            Assert.AreEqual("C3", actual.ElementAt(2).Name, true);
+        }
     }
 }

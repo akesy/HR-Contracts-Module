@@ -12,7 +12,7 @@ namespace HR.Contracts.Services.Filters.Contracts
 
         public override IQueryable<DtoContract> Filter(ColumnFilterInfo filterInfo, IQueryable<DtoContract> items)
         {
-            if (filterInfo.Type == ColumnFilterType.ContractName && filterInfo.Value != null)
+            if (filterInfo.Type == ColumnFilterType.ContractName && !string.IsNullOrWhiteSpace(filterInfo.Value as string))
             {
                 return items.Where(item => item.Name.Contains(filterInfo.Value.ToString()));
             }
