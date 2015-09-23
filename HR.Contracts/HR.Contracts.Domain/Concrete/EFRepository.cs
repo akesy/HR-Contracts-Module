@@ -27,11 +27,6 @@ namespace HR.Contracts.Domain.Concrete
             }
         }
 
-        public IQueryable<TEntity> Get()
-        {
-            return this.items;
-        }
-
         public async Task SaveChangesAsync()
         {
             await this.context.SaveChangesAsync();

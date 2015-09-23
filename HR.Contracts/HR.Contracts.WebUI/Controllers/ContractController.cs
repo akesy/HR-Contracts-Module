@@ -10,15 +10,25 @@ namespace HR.Contracts.WebUI.Controllers
 {
     public class ContractController : Controller
     {
-        public async Task<ViewResult> List()
+        /// <summary>
+        /// TODO: Remove hardcoded value.
+        /// </summary>
+        public int PageSize { get { return 10; } }
+
+        public async Task<ViewResult> List(int page = 1)
         {
             var client = new ContractServiceClient();
             try
             {
-                var contracts = await client.GetAllContractsAsync();
+                var contracts = await client.GetAllContractsAsync(page, this.PageSize);
+                var totalRecords = await client.GetTotalContractsAsync();
                 client.Close();
 
-                var model = contracts.Select(c => Mapper.Map<ContractModel>(c));
+                var model = new ContractListViewModel
+                {
+                    Contracts = contracts.Select(c => Mapper.Map<ContractModel>(c)),
+                    PagingInfo = new PagingInfo { CurrentPage = page, ItemsPerPage = this.PageSize, TotalItems = totalRecords }
+                };
                 return this.View(model);
             }
             catch (Exception)

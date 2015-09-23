@@ -12,6 +12,9 @@ namespace HR.Contracts.Services.Abstract
         Task<bool> AddContractAsync(DtoContract contract);
 
         [OperationContract]
-        IEnumerable<DtoContract> GetAllContracts();
+        IEnumerable<DtoContract> GetAllContracts(int page, int pageSize);
+
+        [OperationContract]
+        int GetTotalContracts();
     }
 }

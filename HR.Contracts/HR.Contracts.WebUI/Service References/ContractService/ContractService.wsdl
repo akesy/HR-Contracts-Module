@@ -5,7 +5,7 @@
       <xsd:import schemaLocation="http://localhost:8080/?xsd=xsd0" namespace="http://tempuri.org/" />
       <xsd:import schemaLocation="http://localhost:8080/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import schemaLocation="http://localhost:8080/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/HR.Contracts.Services.Dto" />
-      <xsd:import schemaLocation="http://localhost:8080/?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/" />
+      <xsd:import schemaLocation="http://localhost:8080/?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/HR.Contracts.Shared.Enums" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IContractService_AddContract_InputMessage">
@@ -20,6 +20,12 @@
   <wsdl:message name="IContractService_GetAllContracts_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetAllContractsResponse" />
   </wsdl:message>
+  <wsdl:message name="IContractService_GetTotalContracts_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTotalContracts" />
+  </wsdl:message>
+  <wsdl:message name="IContractService_GetTotalContracts_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTotalContractsResponse" />
+  </wsdl:message>
   <wsdl:portType name="IContractService">
     <wsdl:operation name="AddContract">
       <wsdl:input wsaw:Action="http://tempuri.org/IContractService/AddContract" message="tns:IContractService_AddContract_InputMessage" />
@@ -28,6 +34,10 @@
     <wsdl:operation name="GetAllContracts">
       <wsdl:input wsaw:Action="http://tempuri.org/IContractService/GetAllContracts" message="tns:IContractService_GetAllContracts_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IContractService/GetAllContractsResponse" message="tns:IContractService_GetAllContracts_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTotalContracts">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContractService/GetTotalContracts" message="tns:IContractService_GetTotalContracts_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContractService/GetTotalContractsResponse" message="tns:IContractService_GetTotalContracts_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IContractService" type="tns:IContractService">
@@ -43,6 +53,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetAllContracts">
       <soap:operation soapAction="http://tempuri.org/IContractService/GetAllContracts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTotalContracts">
+      <soap:operation soapAction="http://tempuri.org/IContractService/GetTotalContracts" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

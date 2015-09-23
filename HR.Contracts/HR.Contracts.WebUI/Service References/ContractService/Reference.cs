@@ -23,16 +23,16 @@ namespace HR.Contracts.WebUI.ContractService {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<int> ExperienceField;
+        private int ExperienceField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string NameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<decimal> SalaryField;
+        private decimal SalaryField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<HR.Contracts.WebUI.ContractService.ContractType> TypeField;
+        private HR.Contracts.Shared.Enums.ContractType TypeField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -45,7 +45,7 @@ namespace HR.Contracts.WebUI.ContractService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> Experience {
+        public int Experience {
             get {
                 return this.ExperienceField;
             }
@@ -71,7 +71,7 @@ namespace HR.Contracts.WebUI.ContractService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<decimal> Salary {
+        public decimal Salary {
             get {
                 return this.SalaryField;
             }
@@ -84,7 +84,7 @@ namespace HR.Contracts.WebUI.ContractService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<HR.Contracts.WebUI.ContractService.ContractType> Type {
+        public HR.Contracts.Shared.Enums.ContractType Type {
             get {
                 return this.TypeField;
             }
@@ -106,17 +106,6 @@ namespace HR.Contracts.WebUI.ContractService {
         }
     }
     
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="ContractType", Namespace="http://schemas.datacontract.org/2004/07/")]
-    public enum ContractType : int {
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Developer = 0,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Tester = 1,
-    }
-    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ContractService.IContractService")]
     public interface IContractService {
@@ -128,10 +117,16 @@ namespace HR.Contracts.WebUI.ContractService {
         System.Threading.Tasks.Task<bool> AddContractAsync(HR.Contracts.WebUI.ContractService.DtoContract contract);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContractService/GetAllContracts", ReplyAction="http://tempuri.org/IContractService/GetAllContractsResponse")]
-        HR.Contracts.WebUI.ContractService.DtoContract[] GetAllContracts();
+        HR.Contracts.WebUI.ContractService.DtoContract[] GetAllContracts(int page, int pageSize);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContractService/GetAllContracts", ReplyAction="http://tempuri.org/IContractService/GetAllContractsResponse")]
-        System.Threading.Tasks.Task<HR.Contracts.WebUI.ContractService.DtoContract[]> GetAllContractsAsync();
+        System.Threading.Tasks.Task<HR.Contracts.WebUI.ContractService.DtoContract[]> GetAllContractsAsync(int page, int pageSize);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContractService/GetTotalContracts", ReplyAction="http://tempuri.org/IContractService/GetTotalContractsResponse")]
+        int GetTotalContracts();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContractService/GetTotalContracts", ReplyAction="http://tempuri.org/IContractService/GetTotalContractsResponse")]
+        System.Threading.Tasks.Task<int> GetTotalContractsAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -169,12 +164,20 @@ namespace HR.Contracts.WebUI.ContractService {
             return base.Channel.AddContractAsync(contract);
         }
         
-        public HR.Contracts.WebUI.ContractService.DtoContract[] GetAllContracts() {
-            return base.Channel.GetAllContracts();
+        public HR.Contracts.WebUI.ContractService.DtoContract[] GetAllContracts(int page, int pageSize) {
+            return base.Channel.GetAllContracts(page, pageSize);
         }
         
-        public System.Threading.Tasks.Task<HR.Contracts.WebUI.ContractService.DtoContract[]> GetAllContractsAsync() {
-            return base.Channel.GetAllContractsAsync();
+        public System.Threading.Tasks.Task<HR.Contracts.WebUI.ContractService.DtoContract[]> GetAllContractsAsync(int page, int pageSize) {
+            return base.Channel.GetAllContractsAsync(page, pageSize);
+        }
+        
+        public int GetTotalContracts() {
+            return base.Channel.GetTotalContracts();
+        }
+        
+        public System.Threading.Tasks.Task<int> GetTotalContractsAsync() {
+            return base.Channel.GetTotalContractsAsync();
         }
     }
 }

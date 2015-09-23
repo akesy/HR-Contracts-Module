@@ -62,10 +62,10 @@ namespace HR.Contracts.UnitTests
                 new Contract { Name = "C3", Type = ContractType.Developer, Experience = 5, Salary = 8000 }
             }.AsQueryable();
             var mock = new Mock<IRepository<Contract>>();
-            mock.Setup(m => m.Get()).Returns(contracts);
+            mock.Setup(m => m.Items).Returns(contracts);
             IContractService service = new ContractService(mock.Object, new DefaultSalaryPolicy(), new DefaultSalaryCalculator());
 
-            var actual = service.GetAllContracts();
+            var actual = service.GetAllContracts(1, 3);
 
             Assert.IsTrue(actual.All(c => c is DtoContract));
             Assert.AreEqual(3, actual.Count());

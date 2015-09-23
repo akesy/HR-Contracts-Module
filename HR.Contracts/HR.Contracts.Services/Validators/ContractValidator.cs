@@ -10,16 +10,10 @@ namespace HR.Contracts.Services.Validators
         public ContractValidator(ISalaryPolicy policy, ISalaryCalculator calculator)
         {
             this.RuleFor(x => x.Name).NotNull().NotEmpty();
-            this.RuleFor(x => x.Type).NotNull();
-            this.RuleFor(x => x.Experience).NotNull();
-            this.RuleFor(x => x.Salary).NotNull();
-
             this.Custom(x => 
             {
-                var contractType = x.Type.GetValueOrDefault();
-                var experience = x.Experience.GetValueOrDefault();
-                var minWage = policy.GetMinimumWage(contractType, experience);
-                var salary = calculator.Calculate(contractType, experience, minWage);
+                var minWage = policy.GetMinimumWage(x.Type, x.Experience);
+                var salary = calculator.Calculate(x.Type, x.Experience, minWage);
 
                 return x.Salary != salary ? new ValidationFailure("salary", "The value does not match calculated value.") : null;
             });

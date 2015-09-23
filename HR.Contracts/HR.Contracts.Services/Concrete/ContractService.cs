@@ -39,11 +39,21 @@ namespace HR.Contracts.Services.Concrete
             return true;
         }
 
-        public IEnumerable<DtoContract> GetAllContracts()
+        public IEnumerable<DtoContract> GetAllContracts(int page, int pageSize)
         {
-            var contracts = this.contractRepository.Get().ToList();
+            var contracts = this.contractRepository.Items
+                .OrderBy(c => c.Id)
+                .Skip((page - 1) * pageSize)
+                .Take(pageSize)
+                .ToList();
+
             var dtoContracts = contracts.Select(c => Mapper.Map<DtoContract>(c));
             return dtoContracts;
+        }
+
+        public int GetTotalContracts()
+        {
+            return this.contractRepository.Items.Count();
         }
     }
 }

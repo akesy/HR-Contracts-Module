@@ -9,8 +9,6 @@ namespace HR.Contracts.Domain.Abstract
 
         void Add(TEntity entity);
 
-        IQueryable<TEntity> Get();
-
         Task SaveChangesAsync();
     }
 }
