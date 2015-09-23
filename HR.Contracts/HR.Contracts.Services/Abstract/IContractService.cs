@@ -1,5 +1,7 @@
-﻿using HR.Contracts.Services.Dto;
+﻿using System.Collections.Generic;
 using System.ServiceModel;
+using System.Threading.Tasks;
+using HR.Contracts.Services.Dto;
 
 namespace HR.Contracts.Services.Abstract
 {
@@ -7,6 +9,9 @@ namespace HR.Contracts.Services.Abstract
     public interface IContractService
     {
         [OperationContract]
-        bool AddContract(DtoContract contract);
+        Task<bool> AddContractAsync(DtoContract contract);
+
+        [OperationContract]
+        IEnumerable<DtoContract> GetAllContracts();
     }
 }

@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HR.Contracts.Services", "HR
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HR.Contracts.Services.Host", "HR.Contracts.Services.Host\HR.Contracts.Services.Host.csproj", "{4C59A908-6940-4C4E-9AB6-B74334ACED0D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HR.Contracts.WebUI", "HR.Contracts.WebUI\HR.Contracts.WebUI.csproj", "{3E8782FE-430C-44F7-A0FF-BFE294075581}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{4C59A908-6940-4C4E-9AB6-B74334ACED0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4C59A908-6940-4C4E-9AB6-B74334ACED0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4C59A908-6940-4C4E-9AB6-B74334ACED0D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3E8782FE-430C-44F7-A0FF-BFE294075581}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E8782FE-430C-44F7-A0FF-BFE294075581}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E8782FE-430C-44F7-A0FF-BFE294075581}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E8782FE-430C-44F7-A0FF-BFE294075581}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

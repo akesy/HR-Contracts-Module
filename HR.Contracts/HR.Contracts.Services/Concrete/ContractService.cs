@@ -1,4 +1,7 @@
-﻿using AutoMapper;
+﻿using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using AutoMapper;
 using HR.Contracts.Domain.Abstract;
 using HR.Contracts.Domain.Entities;
 using HR.Contracts.Services.Abstract;
@@ -10,9 +13,7 @@ namespace HR.Contracts.Services.Concrete
     public class ContractService : IContractService
     {
         private readonly IRepository<Contract> contractRepository;
-
         private readonly ISalaryPolicy policy;
-
         private readonly ISalaryCalculator calculator;
 
         public ContractService(IRepository<Contract> contractRepository, ISalaryPolicy policy, ISalaryCalculator calculator)
@@ -22,7 +23,7 @@ namespace HR.Contracts.Services.Concrete
             this.calculator = calculator;
         }
 
-        public bool AddContract(DtoContract contract)
+        public async Task<bool> AddContractAsync(DtoContract contract)
         {
             var validator = new ContractValidator(this.policy, this.calculator);
             var result = validator.Validate(contract);
@@ -33,9 +34,14 @@ namespace HR.Contracts.Services.Concrete
 
             var entity = Mapper.Map<Contract>(contract);
             this.contractRepository.Add(entity);
-            this.contractRepository.SaveChanges();
+            await this.contractRepository.SaveChangesAsync();
 
             return true;
+        }
+
+        public IEnumerable<DtoContract> GetAllContracts()
+        {
+            return this.contractRepository.Get().Select(c => Mapper.Map<DtoContract>(c));
         }
     }
 }

@@ -1,7 +1,11 @@
-﻿namespace HR.Contracts.Domain.Entities
+﻿using HR.Contracts.Domain.Abstract;
+
+namespace HR.Contracts.Domain.Entities
 {
-    public class Contract
+    public class Contract : IEntity
     {
+        public int Id { get; set; }
+
         public string Name { get; set; }
 
         public ContractType Type { get; set; }
