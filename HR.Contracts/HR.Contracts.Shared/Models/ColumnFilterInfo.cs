@@ -1,4 +1,6 @@
-﻿namespace HR.Contracts.Services.Filters
+﻿using HR.Contracts.Shared.Enums;
+
+namespace HR.Contracts.Shared.Models
 {
     public class ColumnFilterInfo
     {

@@ -1,5 +1,6 @@
-﻿using HR.Contracts.Domain.Abstract;
-using System;
+﻿using System;
+using HR.Contracts.Domain.Abstract;
+using HR.Contracts.Shared.Enums;
 
 namespace HR.Contracts.Domain.Concrete
 {

@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using HR.Contracts.Shared.Models;
 
 namespace HR.Contracts.Services.Filters
 {

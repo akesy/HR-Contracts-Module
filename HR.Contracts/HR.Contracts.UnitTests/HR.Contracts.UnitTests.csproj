@@ -68,6 +68,10 @@
       <Project>{44adb5cf-b6f4-4c3e-9e22-c2f246a42043}</Project>
       <Name>HR.Contracts.Services</Name>
     </ProjectReference>
+    <ProjectReference Include="..\HR.Contracts.Shared\HR.Contracts.Shared.csproj">
+      <Project>{07f18293-6b6a-439b-9064-f0d9060b58d4}</Project>
+      <Name>HR.Contracts.Shared</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

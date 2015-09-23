@@ -1,12 +1,9 @@
-﻿using HR.Contracts.Domain.Abstract;
-using HR.Contracts.Shared.Enums;
+﻿using HR.Contracts.Shared.Enums;
 
-namespace HR.Contracts.Domain.Entities
+namespace HR.Contracts.WebUI.Models
 {
-    public class Contract : IEntity
+    public class ContractModel
     {
-        public int Id { get; set; }
-
         public string Name { get; set; }
 
         public ContractType Type { get; set; }

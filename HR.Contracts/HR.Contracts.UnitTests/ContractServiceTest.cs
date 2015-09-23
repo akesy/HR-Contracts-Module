@@ -6,6 +6,7 @@ using HR.Contracts.Domain.Entities;
 using HR.Contracts.Services.Abstract;
 using HR.Contracts.Services.Concrete;
 using HR.Contracts.Services.Dto;
+using HR.Contracts.Shared.Enums;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 

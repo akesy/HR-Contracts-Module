@@ -1,4 +1,5 @@
 ﻿using System.Runtime.Serialization;
+using HR.Contracts.Shared.Enums;
 
 namespace HR.Contracts.Services.Dto
 {
@@ -9,12 +10,12 @@ namespace HR.Contracts.Services.Dto
         public string Name { get; set; }
 
         [DataMember]
-        public ContractType? Type { get; set; }
+        public ContractType Type { get; set; }
 
         [DataMember]
-        public int? Experience { get; set; }
+        public int Experience { get; set; }
 
         [DataMember]
-        public decimal? Salary { get; set; }
+        public decimal Salary { get; set; }
     }
 }

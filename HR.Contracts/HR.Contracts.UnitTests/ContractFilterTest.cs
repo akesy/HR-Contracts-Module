@@ -1,8 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using HR.Contracts.Services.Dto;
-using HR.Contracts.Services.Filters;
 using HR.Contracts.Services.Filters.Contracts;
+using HR.Contracts.Shared.Enums;
+using HR.Contracts.Shared.Models;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace HR.Contracts.UnitTests

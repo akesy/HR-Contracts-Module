@@ -1,5 +1,7 @@
 ﻿using System.Linq;
 using HR.Contracts.Services.Dto;
+using HR.Contracts.Shared.Enums;
+using HR.Contracts.Shared.Models;
 
 namespace HR.Contracts.Services.Filters.Contracts
 {

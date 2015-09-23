@@ -1,4 +1,4 @@
-﻿namespace HR.Contracts.Services.Filters
+﻿namespace HR.Contracts.Shared.Enums
 {
     public enum ColumnFilterType
     {

@@ -1,4 +1,6 @@
-﻿namespace HR.Contracts.Domain.Abstract
+﻿using HR.Contracts.Shared.Enums;
+
+namespace HR.Contracts.Domain.Abstract
 {
     public interface ISalaryCalculator
     {

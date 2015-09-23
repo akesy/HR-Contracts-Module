@@ -1,7 +1,8 @@
-﻿using HR.Contracts.Domain.Abstract;
+﻿using System;
+using HR.Contracts.Domain.Abstract;
 using HR.Contracts.Domain.Concrete;
+using HR.Contracts.Shared.Enums;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
 
 namespace HR.Contracts.UnitTests
 {

@@ -3,6 +3,7 @@ namespace HR.Contracts.Domain.Migrations
     using System.Data.Entity.Migrations;
     using Concrete;
     using Entities;
+    using Shared.Enums;
 
     internal sealed class Configuration : DbMigrationsConfiguration<EFDbContext>
     {
