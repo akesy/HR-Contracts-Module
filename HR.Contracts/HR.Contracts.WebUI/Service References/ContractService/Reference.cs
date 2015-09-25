@@ -106,6 +106,67 @@ namespace HR.Contracts.WebUI.ContractService {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ContractsPage", Namespace="http://schemas.datacontract.org/2004/07/HR.Contracts.Services.Dto")]
+    [System.SerializableAttribute()]
+    public partial class ContractsPage : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private HR.Contracts.WebUI.ContractService.DtoContract[] ContractsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int TotalRecordsField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public HR.Contracts.WebUI.ContractService.DtoContract[] Contracts {
+            get {
+                return this.ContractsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ContractsField, value) != true)) {
+                    this.ContractsField = value;
+                    this.RaisePropertyChanged("Contracts");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TotalRecords {
+            get {
+                return this.TotalRecordsField;
+            }
+            set {
+                if ((this.TotalRecordsField.Equals(value) != true)) {
+                    this.TotalRecordsField = value;
+                    this.RaisePropertyChanged("TotalRecords");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ContractService.IContractService")]
     public interface IContractService {
@@ -117,16 +178,10 @@ namespace HR.Contracts.WebUI.ContractService {
         System.Threading.Tasks.Task<bool> AddContractAsync(HR.Contracts.WebUI.ContractService.DtoContract contract);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContractService/GetAllContracts", ReplyAction="http://tempuri.org/IContractService/GetAllContractsResponse")]
-        HR.Contracts.WebUI.ContractService.DtoContract[] GetAllContracts(int page, int pageSize);
+        HR.Contracts.WebUI.ContractService.ContractsPage GetAllContracts(HR.Contracts.Shared.Models.ColumnFilterInfo[] filterCriteria, int page, int pageSize);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContractService/GetAllContracts", ReplyAction="http://tempuri.org/IContractService/GetAllContractsResponse")]
-        System.Threading.Tasks.Task<HR.Contracts.WebUI.ContractService.DtoContract[]> GetAllContractsAsync(int page, int pageSize);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContractService/GetTotalContracts", ReplyAction="http://tempuri.org/IContractService/GetTotalContractsResponse")]
-        int GetTotalContracts();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContractService/GetTotalContracts", ReplyAction="http://tempuri.org/IContractService/GetTotalContractsResponse")]
-        System.Threading.Tasks.Task<int> GetTotalContractsAsync();
+        System.Threading.Tasks.Task<HR.Contracts.WebUI.ContractService.ContractsPage> GetAllContractsAsync(HR.Contracts.Shared.Models.ColumnFilterInfo[] filterCriteria, int page, int pageSize);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -164,20 +219,12 @@ namespace HR.Contracts.WebUI.ContractService {
             return base.Channel.AddContractAsync(contract);
         }
         
-        public HR.Contracts.WebUI.ContractService.DtoContract[] GetAllContracts(int page, int pageSize) {
-            return base.Channel.GetAllContracts(page, pageSize);
+        public HR.Contracts.WebUI.ContractService.ContractsPage GetAllContracts(HR.Contracts.Shared.Models.ColumnFilterInfo[] filterCriteria, int page, int pageSize) {
+            return base.Channel.GetAllContracts(filterCriteria, page, pageSize);
         }
         
-        public System.Threading.Tasks.Task<HR.Contracts.WebUI.ContractService.DtoContract[]> GetAllContractsAsync(int page, int pageSize) {
-            return base.Channel.GetAllContractsAsync(page, pageSize);
-        }
-        
-        public int GetTotalContracts() {
-            return base.Channel.GetTotalContracts();
-        }
-        
-        public System.Threading.Tasks.Task<int> GetTotalContractsAsync() {
-            return base.Channel.GetTotalContractsAsync();
+        public System.Threading.Tasks.Task<HR.Contracts.WebUI.ContractService.ContractsPage> GetAllContractsAsync(HR.Contracts.Shared.Models.ColumnFilterInfo[] filterCriteria, int page, int pageSize) {
+            return base.Channel.GetAllContractsAsync(filterCriteria, page, pageSize);
         }
     }
 }

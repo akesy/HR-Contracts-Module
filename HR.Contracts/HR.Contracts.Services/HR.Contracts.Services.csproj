@@ -58,6 +58,7 @@
     <Compile Include="Abstract\IContractService.cs" />
     <Compile Include="Concrete\AutoMapperConfig.cs" />
     <Compile Include="Concrete\ContractService.cs" />
+    <Compile Include="Dto\ContractsPage.cs" />
     <Compile Include="Dto\DtoContract.cs" />
     <Compile Include="Filters\CollectionFilter.cs" />
     <Compile Include="Filters\Contracts\ContractExperienceFilter.cs" />

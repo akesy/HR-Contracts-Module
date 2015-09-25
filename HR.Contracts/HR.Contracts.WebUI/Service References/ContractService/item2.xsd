@@ -7,4 +7,13 @@
     </xs:restriction>
   </xs:simpleType>
   <xs:element name="ContractType" nillable="true" type="tns:ContractType" />
+  <xs:simpleType name="ColumnFilterType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ContractName" />
+      <xs:enumeration value="ContractType" />
+      <xs:enumeration value="ContractExperience" />
+      <xs:enumeration value="ContractSalary" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ColumnFilterType" nillable="true" type="tns:ColumnFilterType" />
 </xs:schema>

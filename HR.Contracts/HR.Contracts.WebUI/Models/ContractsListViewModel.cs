@@ -2,7 +2,7 @@
 
 namespace HR.Contracts.WebUI.Models
 {
-    public class ContractListViewModel
+    public class ContractsListViewModel
     {
         public IEnumerable<ContractModel> Contracts { get; set; }
 

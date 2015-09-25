@@ -1,22 +1,24 @@
-﻿using System.Linq;
-using HR.Contracts.Services.Dto;
+﻿using System.Globalization;
+using System.Linq;
+using HR.Contracts.Domain.Entities;
 using HR.Contracts.Shared.Enums;
 using HR.Contracts.Shared.Models;
 
 namespace HR.Contracts.Services.Filters.Contracts
 {
-    class ContractSalaryFilter : CollectionFilter<DtoContract>
+    class ContractSalaryFilter : CollectionFilter<Contract>
     {
-        public ContractSalaryFilter(CollectionFilter<DtoContract> successor)
+        public ContractSalaryFilter(CollectionFilter<Contract> successor)
         {
             this.Successor = successor;
         }
 
-        public override IQueryable<DtoContract> Filter(ColumnFilterInfo filterInfo, IQueryable<DtoContract> items)
+        public override IQueryable<Contract> Filter(ColumnFilterInfo filterInfo, IQueryable<Contract> items)
         {
             if (filterInfo.Type == ColumnFilterType.ContractSalary && filterInfo.Value != null)
             {
-                return items.Where(item => item.Salary.Equals(filterInfo.Value));
+                var value = decimal.Parse(filterInfo.Value.ToString(), CultureInfo.InvariantCulture);
+                return items.Where(item => item.Salary == value);
             }
 
             return base.Filter(filterInfo, items);

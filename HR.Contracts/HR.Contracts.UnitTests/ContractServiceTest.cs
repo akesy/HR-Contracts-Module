@@ -65,13 +65,13 @@ namespace HR.Contracts.UnitTests
             mock.Setup(m => m.Items).Returns(contracts);
             IContractService service = new ContractService(mock.Object, new DefaultSalaryPolicy(), new DefaultSalaryCalculator());
 
-            var actual = service.GetAllContracts(1, 3);
+            var actual = service.GetAllContracts(null, 1, 3);
 
-            Assert.IsTrue(actual.All(c => c is DtoContract));
-            Assert.AreEqual(3, actual.Count());
-            Assert.AreEqual("C1", actual.ElementAt(0).Name, true);
-            Assert.AreEqual("C2", actual.ElementAt(1).Name, true);
-            Assert.AreEqual("C3", actual.ElementAt(2).Name, true);
+            Assert.IsTrue(actual.Contracts.All(c => c is DtoContract));
+            Assert.AreEqual(3, actual.Contracts.Count());
+            Assert.AreEqual("C1", actual.Contracts.ElementAt(0).Name, true);
+            Assert.AreEqual("C2", actual.Contracts.ElementAt(1).Name, true);
+            Assert.AreEqual("C3", actual.Contracts.ElementAt(2).Name, true);
         }
     }
 }

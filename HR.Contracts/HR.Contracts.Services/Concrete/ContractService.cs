@@ -6,7 +6,9 @@ using HR.Contracts.Domain.Abstract;
 using HR.Contracts.Domain.Entities;
 using HR.Contracts.Services.Abstract;
 using HR.Contracts.Services.Dto;
+using HR.Contracts.Services.Filters.Contracts;
 using HR.Contracts.Services.Validators;
+using HR.Contracts.Shared.Models;
 
 namespace HR.Contracts.Services.Concrete
 {
@@ -39,21 +41,18 @@ namespace HR.Contracts.Services.Concrete
             return true;
         }
 
-        public IEnumerable<DtoContract> GetAllContracts(int page, int pageSize)
+        public ContractsPage GetAllContracts(IEnumerable<ColumnFilterInfo> filterCriteria, int page, int pageSize)
         {
-            var contracts = this.contractRepository.Items
+            var filter = new ContractFilter();
+            var items = filter.Filter(this.contractRepository.Items, filterCriteria);
+            var contracts = items
                 .OrderBy(c => c.Id)
                 .Skip((page - 1) * pageSize)
                 .Take(pageSize)
                 .ToList();
 
             var dtoContracts = contracts.Select(c => Mapper.Map<DtoContract>(c));
-            return dtoContracts;
-        }
-
-        public int GetTotalContracts()
-        {
-            return this.contractRepository.Items.Count();
+            return new ContractsPage { Contracts = dtoContracts, TotalRecords = items.Count() };
         }
     }
 }

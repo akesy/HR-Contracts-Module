@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using HR.Contracts.Services.Dto;
+using HR.Contracts.Domain.Entities;
 using HR.Contracts.Services.Filters.Contracts;
 using HR.Contracts.Shared.Enums;
 using HR.Contracts.Shared.Models;
@@ -14,11 +14,11 @@ namespace HR.Contracts.UnitTests
         [TestMethod]
         public void GivenContractsListWhenFilteringByNameThenContractsWithNameContainingFilterCriteriaAreReturned()
         {
-            var contracts = new List<DtoContract>
+            var contracts = new List<Contract>
             {
-                new DtoContract { Name = "C1", Type = ContractType.Developer, Experience = 3, Salary = 5000 },
-                new DtoContract { Name = "C2", Type = ContractType.Developer, Experience = 5, Salary = 8000 },
-                new DtoContract { Name = "C3", Type = ContractType.Tester, Experience = 2, Salary = 3000 }
+                new Contract { Name = "C1", Type = ContractType.Developer, Experience = 3, Salary = 5000 },
+                new Contract { Name = "C2", Type = ContractType.Developer, Experience = 5, Salary = 8000 },
+                new Contract { Name = "C3", Type = ContractType.Tester, Experience = 2, Salary = 3000 }
             }.AsQueryable();
             var filterCriteria = new List<ColumnFilterInfo>
             {
@@ -36,11 +36,11 @@ namespace HR.Contracts.UnitTests
         [TestMethod]
         public void GivenContractsListWhenFilteringByDevelopersThenDeveloperContractsAreReturned()
         {
-            var contracts = new List<DtoContract>
+            var contracts = new List<Contract>
             {
-                new DtoContract { Name = "C1", Type = ContractType.Developer, Experience = 3, Salary = 5000 },
-                new DtoContract { Name = "C2", Type = ContractType.Developer, Experience = 5, Salary = 8000 },
-                new DtoContract { Name = "C3", Type = ContractType.Tester, Experience = 2, Salary = 3000 }
+                new Contract { Name = "C1", Type = ContractType.Developer, Experience = 3, Salary = 5000 },
+                new Contract { Name = "C2", Type = ContractType.Developer, Experience = 5, Salary = 8000 },
+                new Contract { Name = "C3", Type = ContractType.Tester, Experience = 2, Salary = 3000 }
             }.AsQueryable();
             var filterCriteria = new List<ColumnFilterInfo>
             {
@@ -60,11 +60,11 @@ namespace HR.Contracts.UnitTests
         [TestMethod]
         public void GivenContractsListWhenFilteringByExperienceThenContractsWithExperienceEqualToFilterCriteriaAreReturned()
         {
-            var contracts = new List<DtoContract>
+            var contracts = new List<Contract>
             {
-                new DtoContract { Name = "C1", Type = ContractType.Developer, Experience = 3, Salary = 5000 },
-                new DtoContract { Name = "C2", Type = ContractType.Developer, Experience = 5, Salary = 8000 },
-                new DtoContract { Name = "C3", Type = ContractType.Tester, Experience = 3, Salary = 3000 }
+                new Contract { Name = "C1", Type = ContractType.Developer, Experience = 3, Salary = 5000 },
+                new Contract { Name = "C2", Type = ContractType.Developer, Experience = 5, Salary = 8000 },
+                new Contract { Name = "C3", Type = ContractType.Tester, Experience = 3, Salary = 3000 }
             }.AsQueryable();
             var filterCriteria = new List<ColumnFilterInfo>
             {
@@ -84,11 +84,11 @@ namespace HR.Contracts.UnitTests
         [TestMethod]
         public void GivenContractsListWhenFilterBySalaryThenContractsWithSalaryEqualToFilterCriteriaAreReturned()
         {
-            var contracts = new List<DtoContract>
+            var contracts = new List<Contract>
             {
-                new DtoContract { Name = "C1", Type = ContractType.Developer, Experience = 3, Salary = 5000 },
-                new DtoContract { Name = "C2", Type = ContractType.Developer, Experience = 5, Salary = 8000 },
-                new DtoContract { Name = "C3", Type = ContractType.Tester, Experience = 5, Salary = 5000 }
+                new Contract { Name = "C1", Type = ContractType.Developer, Experience = 3, Salary = 5000 },
+                new Contract { Name = "C2", Type = ContractType.Developer, Experience = 5, Salary = 8000 },
+                new Contract { Name = "C3", Type = ContractType.Tester, Experience = 5, Salary = 5000 }
             }.AsQueryable();
             var filterCriteria = new List<ColumnFilterInfo>
             {
@@ -108,11 +108,11 @@ namespace HR.Contracts.UnitTests
         [TestMethod]
         public void GivenContractsListWhenFilterByTestersAndNameThenTestersContractsWithNameContainingFilterCriteriaAreReturned()
         {
-            var contracts = new List<DtoContract>
+            var contracts = new List<Contract>
             {
-                new DtoContract { Name = "C1", Type = ContractType.Tester, Experience = 4, Salary = 5000 },
-                new DtoContract { Name = "C2", Type = ContractType.Developer, Experience = 5, Salary = 8000 },
-                new DtoContract { Name = "C3", Type = ContractType.Tester, Experience = 2, Salary = 3000 }
+                new Contract { Name = "C1", Type = ContractType.Tester, Experience = 4, Salary = 5000 },
+                new Contract { Name = "C2", Type = ContractType.Developer, Experience = 5, Salary = 8000 },
+                new Contract { Name = "C3", Type = ContractType.Tester, Experience = 2, Salary = 3000 }
             }.AsQueryable();
             var filterCriteria = new List<ColumnFilterInfo>
             {
@@ -131,11 +131,11 @@ namespace HR.Contracts.UnitTests
         [TestMethod]
         public void GivenContractsListWhenFilterByTestersAndExperienceThenTestersContractsWithExperienceEqualToFilterCriteriaAreReturned()
         {
-            var contracts = new List<DtoContract>
+            var contracts = new List<Contract>
             {
-                new DtoContract { Name = "C1", Type = ContractType.Tester, Experience = 4, Salary = 5000 },
-                new DtoContract { Name = "C2", Type = ContractType.Developer, Experience = 4, Salary = 8000 },
-                new DtoContract { Name = "C3", Type = ContractType.Tester, Experience = 5, Salary = 5500 }
+                new Contract { Name = "C1", Type = ContractType.Tester, Experience = 4, Salary = 5000 },
+                new Contract { Name = "C2", Type = ContractType.Developer, Experience = 4, Salary = 8000 },
+                new Contract { Name = "C3", Type = ContractType.Tester, Experience = 5, Salary = 5500 }
             }.AsQueryable();
             var filterCriteria = new List<ColumnFilterInfo>
             {
@@ -154,11 +154,11 @@ namespace HR.Contracts.UnitTests
         [TestMethod]
         public void GivenContractsListWhenFilterByExperienceAndSalaryThenContractsWithExperienceAndSalaryEqualToFilterCriteriaAreReturned()
         {
-            var contracts = new List<DtoContract>
+            var contracts = new List<Contract>
             {
-                new DtoContract { Name = "C1", Type = ContractType.Tester, Experience = 4, Salary = 5000 },
-                new DtoContract { Name = "C2", Type = ContractType.Developer, Experience = 4, Salary = 8000 },
-                new DtoContract { Name = "C3", Type = ContractType.Tester, Experience = 4, Salary = 5500 }
+                new Contract { Name = "C1", Type = ContractType.Tester, Experience = 4, Salary = 5000 },
+                new Contract { Name = "C2", Type = ContractType.Developer, Experience = 4, Salary = 8000 },
+                new Contract { Name = "C3", Type = ContractType.Tester, Experience = 4, Salary = 5500 }
             }.AsQueryable();
             var filterCriteria = new List<ColumnFilterInfo>
             {
@@ -177,11 +177,11 @@ namespace HR.Contracts.UnitTests
         [TestMethod]
         public void GivenListOfContractsWhenFilteringByNullNameThenAllItemsAreReturned()
         {
-            var contracts = new List<DtoContract>
+            var contracts = new List<Contract>
             {
-                new DtoContract { Name = "C1", Type = ContractType.Tester, Experience = 4, Salary = 5000 },
-                new DtoContract { Name = "C2", Type = ContractType.Developer, Experience = 4, Salary = 8000 },
-                new DtoContract { Name = "C3", Type = ContractType.Tester, Experience = 4, Salary = 5500 }
+                new Contract { Name = "C1", Type = ContractType.Tester, Experience = 4, Salary = 5000 },
+                new Contract { Name = "C2", Type = ContractType.Developer, Experience = 4, Salary = 8000 },
+                new Contract { Name = "C3", Type = ContractType.Tester, Experience = 4, Salary = 5500 }
             }.AsQueryable();
             var filterCriteria = new List<ColumnFilterInfo>
             {
@@ -200,11 +200,11 @@ namespace HR.Contracts.UnitTests
         [TestMethod]
         public void GivenListOfContractsWhenFilteringByEmptyNameThenAllItemsAreReturned()
         {
-            var contracts = new List<DtoContract>
+            var contracts = new List<Contract>
             {
-                new DtoContract { Name = "C1", Type = ContractType.Tester, Experience = 4, Salary = 5000 },
-                new DtoContract { Name = "C2", Type = ContractType.Developer, Experience = 4, Salary = 8000 },
-                new DtoContract { Name = "C3", Type = ContractType.Tester, Experience = 4, Salary = 5500 }
+                new Contract { Name = "C1", Type = ContractType.Tester, Experience = 4, Salary = 5000 },
+                new Contract { Name = "C2", Type = ContractType.Developer, Experience = 4, Salary = 8000 },
+                new Contract { Name = "C3", Type = ContractType.Tester, Experience = 4, Salary = 5500 }
             }.AsQueryable();
             var filterCriteria = new List<ColumnFilterInfo>
             {

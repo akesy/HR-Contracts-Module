@@ -2,6 +2,7 @@
 using System.ServiceModel;
 using System.Threading.Tasks;
 using HR.Contracts.Services.Dto;
+using HR.Contracts.Shared.Models;
 
 namespace HR.Contracts.Services.Abstract
 {
@@ -12,9 +13,6 @@ namespace HR.Contracts.Services.Abstract
         Task<bool> AddContractAsync(DtoContract contract);
 
         [OperationContract]
-        IEnumerable<DtoContract> GetAllContracts(int page, int pageSize);
-
-        [OperationContract]
-        int GetTotalContracts();
+        ContractsPage GetAllContracts(IEnumerable<ColumnFilterInfo> filterCriteria, int page, int pageSize);
     }
 }

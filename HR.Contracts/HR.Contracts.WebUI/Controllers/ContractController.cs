@@ -3,6 +3,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 using AutoMapper;
+using HR.Contracts.Shared.Enums;
+using HR.Contracts.Shared.Models;
 using HR.Contracts.WebUI.ContractService;
 using HR.Contracts.WebUI.Models;
 
@@ -15,19 +17,19 @@ namespace HR.Contracts.WebUI.Controllers
         /// </summary>
         public int PageSize { get { return 10; } }
 
-        public async Task<ViewResult> List(int page = 1)
+        public async Task<ViewResult> List(ContractFilterCriteria filterArgs, int page = 1)
         {
             var client = new ContractServiceClient();
             try
             {
-                var contracts = await client.GetAllContractsAsync(page, this.PageSize);
-                var totalRecords = await client.GetTotalContractsAsync();
+                var filterCriteria = CreateFilterCriteria(filterArgs);
+                var contractsPage = await client.GetAllContractsAsync(filterCriteria, page, this.PageSize);
                 client.Close();
 
-                var model = new ContractListViewModel
+                var model = new ContractsListViewModel
                 {
-                    Contracts = contracts.Select(c => Mapper.Map<ContractModel>(c)),
-                    PagingInfo = new PagingInfo { CurrentPage = page, ItemsPerPage = this.PageSize, TotalItems = totalRecords }
+                    Contracts = contractsPage.Contracts.Select(c => Mapper.Map<ContractModel>(c)),
+                    PagingInfo = new PagingInfo { CurrentPage = page, ItemsPerPage = this.PageSize, TotalItems = contractsPage.TotalRecords }
                 };
                 return this.View(model);
             }
@@ -36,6 +38,19 @@ namespace HR.Contracts.WebUI.Controllers
                 client.Abort();
                 throw;
             }
+        }
+
+        private static ColumnFilterInfo[] CreateFilterCriteria(ContractFilterCriteria filterArgs)
+        {
+            return new ColumnFilterInfo[]
+            {
+                    new ColumnFilterInfo { Type = ColumnFilterType.ContractName, Value = filterArgs.Name },
+                    new ColumnFilterInfo { Type = ColumnFilterType.ContractType, Value = filterArgs.ContractType.HasValue
+                    ? filterArgs.ContractType.ToString()
+                    : null },
+                    new ColumnFilterInfo { Type = ColumnFilterType.ContractExperience, Value = filterArgs.Experience },
+                    new ColumnFilterInfo { Type = ColumnFilterType.ContractSalary, Value = filterArgs.Salary }
+            };
         }
     }
 }

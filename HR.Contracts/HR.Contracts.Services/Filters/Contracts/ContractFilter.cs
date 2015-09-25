@@ -1,13 +1,13 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using HR.Contracts.Services.Dto;
+using HR.Contracts.Domain.Entities;
 using HR.Contracts.Shared.Models;
 
 namespace HR.Contracts.Services.Filters.Contracts
 {
     public class ContractFilter
     {
-        private readonly CollectionFilter<DtoContract> headFilter;
+        private readonly CollectionFilter<Contract> headFilter;
 
         public ContractFilter()
         {
@@ -17,8 +17,13 @@ namespace HR.Contracts.Services.Filters.Contracts
             this.headFilter = new ContractNameFilter(typeFilter);
         }
 
-        public IQueryable<DtoContract> Filter(IQueryable<DtoContract> items, IEnumerable<ColumnFilterInfo> filterCriteria)
+        public IQueryable<Contract> Filter(IQueryable<Contract> items, IEnumerable<ColumnFilterInfo> filterCriteria)
         {
+            if (filterCriteria == null)
+            {
+                return items;
+            }
+
             var result = items.AsQueryable();
             foreach (var filterCriterion in filterCriteria)
             {

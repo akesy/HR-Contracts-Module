@@ -10,6 +10,13 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="DtoContract" nillable="true" type="tns:DtoContract" />
+  <xs:complexType name="ContractsPage">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Contracts" nillable="true" type="tns:ArrayOfDtoContract" />
+      <xs:element minOccurs="0" name="TotalRecords" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ContractsPage" nillable="true" type="tns:ContractsPage" />
   <xs:complexType name="ArrayOfDtoContract">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="DtoContract" nillable="true" type="tns:DtoContract" />
