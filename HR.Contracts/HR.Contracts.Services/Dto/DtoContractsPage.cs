@@ -2,7 +2,7 @@
 
 namespace HR.Contracts.Services.Dto
 {
-    public class ContractsPage
+    public class DtoContractsPage
     {
         public IEnumerable<DtoContract> Contracts { get; set; }
 

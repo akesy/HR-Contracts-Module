@@ -41,7 +41,7 @@ namespace HR.Contracts.Services.Concrete
             return true;
         }
 
-        public ContractsPage GetAllContracts(IEnumerable<ColumnFilterInfo> filterCriteria, int page, int pageSize)
+        public DtoContractsPage GetAllContracts(IEnumerable<ColumnFilterInfo> filterCriteria, int page, int pageSize)
         {
             var filter = new ContractFilter();
             var items = filter.Filter(this.contractRepository.Items, filterCriteria);
@@ -52,7 +52,7 @@ namespace HR.Contracts.Services.Concrete
                 .ToList();
 
             var dtoContracts = contracts.Select(c => Mapper.Map<DtoContract>(c));
-            return new ContractsPage { Contracts = dtoContracts, TotalRecords = items.Count() };
+            return new DtoContractsPage { Contracts = dtoContracts, TotalRecords = items.Count() };
         }
     }
 }

@@ -11,8 +11,9 @@ namespace HR.Contracts.Services.Filters.Contracts
 
         public ContractFilter()
         {
-            var salaryFilter = new ContractSalaryFilter(null);
-            var experienceFilter = new ContractExperienceFilter(salaryFilter);
+            var salaryGreaterThanFilter = new ContractSalaryGraterThanFilter(null);
+            var salaryEqualToFilter = new ContractSalaryEqualToFilter(salaryGreaterThanFilter);
+            var experienceFilter = new ContractExperienceFilter(salaryEqualToFilter);
             var typeFilter = new ContractTypeFilter(experienceFilter);
             this.headFilter = new ContractNameFilter(typeFilter);
         }

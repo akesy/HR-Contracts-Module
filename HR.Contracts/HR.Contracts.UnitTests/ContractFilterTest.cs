@@ -92,7 +92,7 @@ namespace HR.Contracts.UnitTests
             }.AsQueryable();
             var filterCriteria = new List<ColumnFilterInfo>
             {
-                new ColumnFilterInfo { Type = ColumnFilterType.ContractSalary, Value = 5000m }
+                new ColumnFilterInfo { Type = ColumnFilterType.ContractSalaryEqualTo, Value = 5000m }
             };
             var contractFilter = new ContractFilter();
 
@@ -163,7 +163,7 @@ namespace HR.Contracts.UnitTests
             var filterCriteria = new List<ColumnFilterInfo>
             {
                 new ColumnFilterInfo { Type = ColumnFilterType.ContractExperience, Value = 4 },
-                new ColumnFilterInfo { Type = ColumnFilterType.ContractSalary, Value = 5000m }
+                new ColumnFilterInfo { Type = ColumnFilterType.ContractSalaryEqualTo, Value = 5000m }
             };
             var contractFilter = new ContractFilter();
 

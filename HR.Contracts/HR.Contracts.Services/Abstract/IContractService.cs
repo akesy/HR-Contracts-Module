@@ -13,6 +13,6 @@ namespace HR.Contracts.Services.Abstract
         Task<bool> AddContractAsync(DtoContract contract);
 
         [OperationContract]
-        ContractsPage GetAllContracts(IEnumerable<ColumnFilterInfo> filterCriteria, int page, int pageSize);
+        DtoContractsPage GetAllContracts(IEnumerable<ColumnFilterInfo> filterCriteria, int page, int pageSize);
     }
 }

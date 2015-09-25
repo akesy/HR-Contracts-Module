@@ -8,6 +8,8 @@
 
         ContractExperience,
 
-        ContractSalary
+        ContractSalaryEqualTo,
+
+        ContractSalaryGreaterThan
     }
 }

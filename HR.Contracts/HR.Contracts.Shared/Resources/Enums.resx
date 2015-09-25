@@ -117,31 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="ContractExperience" xml:space="preserve">
-    <value>Doświadczenie (w latach)</value>
+  <data name="ContractType_Developer" xml:space="preserve">
+    <value>Programista</value>
   </data>
-  <data name="ContractName" xml:space="preserve">
-    <value>Nazwa</value>
-  </data>
-  <data name="ContractSalary" xml:space="preserve">
-    <value>Stawka (PLN netto)</value>
-  </data>
-  <data name="ContractType" xml:space="preserve">
-    <value>Typ</value>
-  </data>
-  <data name="DevelopersWith5YearsExperience" xml:space="preserve">
-    <value>Programiści z 5 letnim stażem</value>
-  </data>
-  <data name="Filter" xml:space="preserve">
-    <value>Filtruj</value>
-  </data>
-  <data name="ResetFilters" xml:space="preserve">
-    <value>Resetuj filtry</value>
-  </data>
-  <data name="SalaryGreaterThan5000" xml:space="preserve">
-    <value>Kontrakty ze stawką &gt;5000</value>
-  </data>
-  <data name="SelectContractType" xml:space="preserve">
-    <value>Wybierz typ kontraktu</value>
+  <data name="ContractType_Tester" xml:space="preserve">
+    <value>Tester</value>
   </data>
 </root>

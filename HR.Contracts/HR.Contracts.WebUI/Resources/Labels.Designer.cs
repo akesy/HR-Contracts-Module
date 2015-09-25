@@ -95,5 +95,50 @@ namespace HR.Contracts.WebUI.Resources {
                 return ResourceManager.GetString("ContractType", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Programiści z 5 letnim stażem.
+        /// </summary>
+        public static string DevelopersWith5YearsExperience {
+            get {
+                return ResourceManager.GetString("DevelopersWith5YearsExperience", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Filtruj.
+        /// </summary>
+        public static string Filter {
+            get {
+                return ResourceManager.GetString("Filter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Resetuj filtry.
+        /// </summary>
+        public static string ResetFilters {
+            get {
+                return ResourceManager.GetString("ResetFilters", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Kontrakty ze stawką &gt;5000.
+        /// </summary>
+        public static string SalaryGreaterThan5000 {
+            get {
+                return ResourceManager.GetString("SalaryGreaterThan5000", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wybierz typ kontraktu.
+        /// </summary>
+        public static string SelectContractType {
+            get {
+                return ResourceManager.GetString("SelectContractType", resourceCulture);
+            }
+        }
     }
 }

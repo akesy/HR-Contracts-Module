@@ -1,37 +1,119 @@
-﻿@model HR.Contracts.WebUI.Models.ContractListViewModel
+﻿@model ContractsListViewModel
 
-@using HR.Contracts.WebUI.Resources;
+@using HR.Contracts.Shared.Enums;
 @using HR.Contracts.WebUI.Extensions;
-@using System.Globalization;
+@using HR.Contracts.WebUI.Models;
+@using HR.Contracts.WebUI.Resources;
 
 @{
     ViewBag.Title = "List";
+    const string contractsId = "contracts";
 }
 
 <h2>List</h2>
 
-<table class="table table-striped">
-    <thead>
-        <th>@Labels.ContractName</th>
-        <th>@Labels.ContractType</th>
-        <th>@Labels.ContractExperience</th>
-        <th>@Labels.ContractSalary</th>
-    </thead>
-    <tbody>
-        @foreach (var contract in Model.Contracts)
+<div id="contracts">
+    <script type="text/html" data-bind="object: urls">
         {
-            <tr>
-                <td>@contract.Name</td>
-                <td>@contract.Type</td>
-                <td>@contract.Experience</td>
-                <td>@contract.Salary.ToString("C", CultureInfo.CreateSpecificCulture("pl-PL"))</td>
-            </tr>            
+        "contractListUrl": "@Html.Raw(Url.Action("List"))",
+        "developerContractsWith5YearsExperienceUrl": "@Html.Raw(Url.Action("List", new { type = ContractType.Developer, experience = 5 }))",
+        "salaryGreaterThan5000Url": "@Html.Raw(Url.Action("List", new { salaryGreaterThan = 5000 }))"
         }
-    </tbody>
-    <tfoot>
-    </tfoot>
-</table>
+    </script>
+    <div class="btn-group">
+        <button type="button" class="btn btn-primary" data-bind="click: function (data, event) { filter(null, data, event) }">
+            @Labels.Filter
+        </button>
+        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span class="caret"></span>
+            <span class="sr-only"></span>
+        </button>
+        <ul class="dropdown-menu">
+            <li>
+                <a href="#"
+                   data-bind="click: function (data, event) { filter('developerContractsWith5YearsExperienceUrl', data, event) }">
+                    @Labels.DevelopersWith5YearsExperience
+                </a>
+            </li>
+            <li>
+                <a href="#"
+                   data-bind="click: function (data, event) { filter('salaryGreaterThan5000Url', data, event) }">
+                    @Labels.SalaryGreaterThan5000
+                </a>
+            </li>
+        </ul>
+    </div>
+    <button type="button" class="btn btn-danger" data-bind="click: reset">@Labels.ResetFilters</button>
+    <table class="table table-striped">
+        <thead>
+        <th>
+            <div class="row">
+                <div class="col-xs-12">
+                    @Html.TextBox("Name", null, new { data_bind = "value: name" })
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    @Labels.ContractName
+                </div>
+            </div>
+        </th>
+        <th>
+            <div class="row">
+                <div class="col-xs-12">
+                    @Html.DropDownList("ContractType", ContractType.Developer.ToSelectList(new SelectListOptions { SelectChosenValue = false }), Labels.SelectContractType, new { data_bind = "value: type" })
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    @Labels.ContractType
+                </div>
+            </div>
+        </th>
+        <th>
+            <div class="row">
+                <div class="col-xs-12">
+                    @Html.TextBox("Experience", null, new { data_bind = "value: experience" })
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    @Labels.ContractExperience
+                </div>
+            </div>
+        </th>
+        <th>
+            <div class="row">
+                <div class="col-xs-12">
+                    @Html.TextBox("Salary", null, new { data_bind = "value: salary" })
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    @Labels.ContractSalary
+                </div>
+            </div>
+        </th>
+        </thead>
+        <tbody>
+            @Html.DisplayFor(model => model.Contracts)
+        </tbody>
+        <tfoot>
+        </tfoot>
+    </table>
+</div>
 
 <div class="text-center">
     @Html.PageLinks(Model.PagingInfo, x => Url.Action("List", new { page = x }))
 </div>
+
+<script type="text/javascript" src="~/Scripts/Models/ContractFilter.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        var e = document.getElementById("@contractsId");
+        if (e) {
+            var vm = new HR.Contracts.ContractFilter();
+            ko.applyBindings(vm, e);
+        }
+    });
+</script>

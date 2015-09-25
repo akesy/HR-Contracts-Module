@@ -45,11 +45,12 @@ namespace HR.Contracts.WebUI.Controllers
             return new ColumnFilterInfo[]
             {
                     new ColumnFilterInfo { Type = ColumnFilterType.ContractName, Value = filterArgs.Name },
-                    new ColumnFilterInfo { Type = ColumnFilterType.ContractType, Value = filterArgs.ContractType.HasValue
-                    ? filterArgs.ContractType.ToString()
+                    new ColumnFilterInfo { Type = ColumnFilterType.ContractType, Value = filterArgs.Type.HasValue
+                    ? filterArgs.Type.ToString()
                     : null },
                     new ColumnFilterInfo { Type = ColumnFilterType.ContractExperience, Value = filterArgs.Experience },
-                    new ColumnFilterInfo { Type = ColumnFilterType.ContractSalary, Value = filterArgs.Salary }
+                    new ColumnFilterInfo { Type = ColumnFilterType.ContractSalaryEqualTo, Value = filterArgs.SalaryEqualTo },
+                    new ColumnFilterInfo { Type = ColumnFilterType.ContractSalaryGreaterThan, Value = filterArgs.SalaryGreaterThan }
             };
         }
     }

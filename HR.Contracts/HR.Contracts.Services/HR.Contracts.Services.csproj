@@ -58,13 +58,14 @@
     <Compile Include="Abstract\IContractService.cs" />
     <Compile Include="Concrete\AutoMapperConfig.cs" />
     <Compile Include="Concrete\ContractService.cs" />
-    <Compile Include="Dto\ContractsPage.cs" />
+    <Compile Include="Dto\DtoContractsPage.cs" />
     <Compile Include="Dto\DtoContract.cs" />
     <Compile Include="Filters\CollectionFilter.cs" />
     <Compile Include="Filters\Contracts\ContractExperienceFilter.cs" />
     <Compile Include="Filters\Contracts\ContractFilter.cs" />
     <Compile Include="Filters\Contracts\ContractNameFilter.cs" />
-    <Compile Include="Filters\Contracts\ContractSalaryFilter.cs" />
+    <Compile Include="Filters\Contracts\ContractSalaryGraterThanFilter.cs" />
+    <Compile Include="Filters\Contracts\ContractSalaryEqualToFilter.cs" />
     <Compile Include="Filters\Contracts\ContractTypeFilter.cs" />
     <Compile Include="Modules\ServicesModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
