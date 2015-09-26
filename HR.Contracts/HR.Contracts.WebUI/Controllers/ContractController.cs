@@ -12,6 +12,8 @@ namespace HR.Contracts.WebUI.Controllers
 {
     public class ContractController : Controller
     {
+        private const string ListActionName = "List";
+        
         /// <summary>
         /// TODO: Remove hardcoded value.
         /// </summary>
@@ -38,6 +40,36 @@ namespace HR.Contracts.WebUI.Controllers
                 client.Abort();
                 throw;
             }
+        }
+
+        public ViewResult Create()
+        {
+            return this.View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> Create(ContractModel model)
+        {
+            if (this.ModelState.IsValid)
+            {
+                var contract = Mapper.Map<DtoContract>(model);
+                var client = new ContractServiceClient();
+                try
+                {
+                    await client.AddContractAsync(contract);
+                    client.Close();
+
+                    return this.RedirectToAction(ListActionName);
+                }
+                catch (Exception)
+                {
+                    client.Abort();
+                    throw;
+                }
+            }
+
+            return this.View(model);
         }
 
         private static ColumnFilterInfo[] CreateFilterCriteria(ContractFilterCriteria filterArgs)

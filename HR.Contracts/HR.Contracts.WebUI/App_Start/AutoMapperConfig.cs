@@ -9,6 +9,7 @@ namespace HR.Contracts.WebUI.App_Start
         public static void RegisterMappings()
         {
             Mapper.CreateMap<DtoContract, ContractModel>();
+            Mapper.CreateMap<ContractModel, DtoContract>();
         }
     }
 }

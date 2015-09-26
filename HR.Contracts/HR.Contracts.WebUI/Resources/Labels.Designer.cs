@@ -97,6 +97,15 @@ namespace HR.Contracts.WebUI.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Utwórz.
+        /// </summary>
+        public static string Create {
+            get {
+                return ResourceManager.GetString("Create", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Programiści z 5 letnim stażem.
         /// </summary>
         public static string DevelopersWith5YearsExperience {

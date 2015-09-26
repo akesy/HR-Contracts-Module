@@ -44,6 +44,7 @@
         </ul>
     </div>
     <button type="button" class="btn btn-danger" data-bind="click: reset">@Labels.ResetFilters</button>
+    <a href="@Url.Action("Create")" class="btn btn-success">@Labels.Create</a>
     <table class="table table-striped">
         <thead>
         <th>
@@ -85,7 +86,7 @@
         <th>
             <div class="row">
                 <div class="col-xs-12">
-                    @Html.TextBox("Salary", null, new { data_bind = "value: salary" })
+                    @Html.TextBox("Salary", null, new { data_bind = "value: salaryEqualTo" })
                 </div>
             </div>
             <div class="row">

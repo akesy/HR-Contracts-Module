@@ -1,0 +1,56 @@
+﻿@model ContractModel
+
+@{
+    ViewBag.Title = "Create";
+}
+
+@using HR.Contracts.Shared.Enums;
+@using HR.Contracts.WebUI.Extensions;
+@using HR.Contracts.WebUI.Models;
+@using HR.Contracts.WebUI.Resources;
+
+<h2>Create</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="row">
+        <div class="col-sm-6">
+            @Html.LabelFor(model => model.Name)
+        </div>
+        <div class="col-sm-6">
+            @Html.TextBoxFor(model => model.Name)<br />
+            @Html.ValidationMessageFor(model => model.Name)
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            @Html.LabelFor(model => model.Type)
+        </div>
+        <div class="col-sm-6">
+            @Html.DropDownListFor(model => model.Type, ContractType.Developer.ToSelectList(new SelectListOptions { SelectChosenValue = false }), Labels.SelectContractType)<br />
+            @Html.ValidationMessageFor(model => model.Type)
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            @Html.LabelFor(model => model.Experience)
+        </div>
+        <div class="col-sm-6">
+            @Html.TextBoxFor(model => model.Experience)<br />
+            @Html.ValidationMessageFor(model => model.Experience)
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            @Html.LabelFor(model => model.Salary)
+        </div>
+        <div class="col-sm-6">
+            @Html.TextBoxFor(model => model.Salary)<br />
+            @Html.ValidationMessageFor(model => model.Salary)
+        </div>
+    </div>
+    <input class="btn btn-primary" type="submit" value="@Labels.Create" />
+}
+

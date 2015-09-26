@@ -110,6 +110,11 @@
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\knockout-3.3.0.js" />
     <Content Include="Scripts\Knockout\BindingHandlers\ko.bindingHandlers.object.js" />
     <Content Include="Scripts\Models\ContractFilter.js" />
@@ -133,12 +138,15 @@
   <ItemGroup>
     <Compile Include="App_Start\AutoMapperConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Constants\DisplayTemplateNames.cs" />
+    <Compile Include="Constants\ResourceKeys.cs" />
     <Compile Include="Controllers\ContractController.cs" />
     <Compile Include="Extensions\HtmlExtensions.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\ContractFilterCriteria.cs" />
+    <Compile Include="Models\ContractModelMetadata.cs" />
     <Compile Include="Models\ContractsListViewModel.cs" />
     <Compile Include="Models\ContractModel.cs" />
     <Compile Include="Models\PagingInfo.cs" />
@@ -181,6 +189,7 @@
     </None>
     <Content Include="Views\Shared\DisplayTemplates\LocalizedEnum.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\ContractModel.cshtml" />
+    <Content Include="Views\Contract\Create.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

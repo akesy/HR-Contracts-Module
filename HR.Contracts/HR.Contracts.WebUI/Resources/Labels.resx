@@ -129,6 +129,9 @@
   <data name="ContractType" xml:space="preserve">
     <value>Typ</value>
   </data>
+  <data name="Create" xml:space="preserve">
+    <value>Utwórz</value>
+  </data>
   <data name="DevelopersWith5YearsExperience" xml:space="preserve">
     <value>Programiści z 5 letnim stażem</value>
   </data>
