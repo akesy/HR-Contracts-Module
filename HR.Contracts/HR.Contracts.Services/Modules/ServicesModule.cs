@@ -1,5 +1,4 @@
 ﻿using Autofac;
-using HR.Contracts.Services.Abstract;
 using HR.Contracts.Services.Concrete;
 
 namespace HR.Contracts.Services.Modules
