@@ -10,7 +10,7 @@ namespace HR.Contracts.Services.Abstract
     public interface IContractService
     {
         [OperationContract]
-        Task<bool> AddContractAsync(DtoContract contract);
+        Task<bool> CreateContractAsync(DtoContract contract);
 
         [OperationContract]
         DtoContractsPage GetAllContracts(IEnumerable<ColumnFilterInfo> filterCriteria, int page, int pageSize);

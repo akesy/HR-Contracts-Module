@@ -20,7 +20,10 @@ namespace HR.Contracts.Services.Host
             {
                 using (var host = new ServiceHost(typeof(ContractService)))
                 {
-                    host.AddDependencyInjectionBehavior<IContractService>(container);
+                    var binding = new BasicHttpBinding();
+                    host.AddServiceEndpoint(typeof(IContractService), binding, string.Empty);
+                    host.AddServiceEndpoint(typeof(ISalaryService), binding, string.Empty);
+                    host.AddDependencyInjectionBehavior<ContractService>(container);
 
                     host.Open();
 

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
@@ -8,11 +9,12 @@ using HR.Contracts.Services.Abstract;
 using HR.Contracts.Services.Dto;
 using HR.Contracts.Services.Filters.Contracts;
 using HR.Contracts.Services.Validators;
+using HR.Contracts.Shared.Enums;
 using HR.Contracts.Shared.Models;
 
 namespace HR.Contracts.Services.Concrete
 {
-    public class ContractService : IContractService
+    public class ContractService : IContractService, ISalaryService
     {
         private readonly IRepository<Contract> contractRepository;
         private readonly ISalaryPolicy policy;
@@ -25,7 +27,7 @@ namespace HR.Contracts.Services.Concrete
             this.calculator = calculator;
         }
 
-        public async Task<bool> AddContractAsync(DtoContract contract)
+        public async Task<bool> CreateContractAsync(DtoContract contract)
         {
             var validator = new ContractValidator(this.policy, this.calculator);
             var result = validator.Validate(contract);
@@ -53,6 +55,13 @@ namespace HR.Contracts.Services.Concrete
 
             var dtoContracts = contracts.Select(c => Mapper.Map<DtoContract>(c));
             return new DtoContractsPage { Contracts = dtoContracts, TotalRecords = items.Count() };
+        }
+
+        public decimal CalculateSalary(ContractType contractType, int experience)
+        {
+            var minWage = this.policy.GetMinimumWage(contractType, experience);
+            var salary = this.calculator.Calculate(contractType, experience, minWage);
+            return salary;
         }
     }
 }

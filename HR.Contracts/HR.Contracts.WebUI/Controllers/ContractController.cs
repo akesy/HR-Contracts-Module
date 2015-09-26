@@ -57,7 +57,7 @@ namespace HR.Contracts.WebUI.Controllers
                 var client = new ContractServiceClient();
                 try
                 {
-                    await client.AddContractAsync(contract);
+                    await client.CreateContractAsync(contract);
                     client.Close();
 
                     return this.RedirectToAction(ListActionName);

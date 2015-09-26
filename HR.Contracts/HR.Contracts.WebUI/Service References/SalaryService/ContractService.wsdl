@@ -21,6 +21,12 @@
   <wsdl:message name="IContractService_GetAllContracts_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetAllContractsResponse" />
   </wsdl:message>
+  <wsdl:message name="ISalaryService_CalculateSalary_InputMessage">
+    <wsdl:part name="parameters" element="tns:CalculateSalary" />
+  </wsdl:message>
+  <wsdl:message name="ISalaryService_CalculateSalary_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CalculateSalaryResponse" />
+  </wsdl:message>
   <wsdl:portType name="IContractService">
     <wsdl:operation name="CreateContract">
       <wsdl:input wsaw:Action="http://tempuri.org/IContractService/CreateContract" message="tns:IContractService_CreateContract_InputMessage" />
@@ -29,6 +35,12 @@
     <wsdl:operation name="GetAllContracts">
       <wsdl:input wsaw:Action="http://tempuri.org/IContractService/GetAllContracts" message="tns:IContractService_GetAllContracts_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IContractService/GetAllContractsResponse" message="tns:IContractService_GetAllContracts_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="ISalaryService">
+    <wsdl:operation name="CalculateSalary">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISalaryService/CalculateSalary" message="tns:ISalaryService_CalculateSalary_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISalaryService/CalculateSalaryResponse" message="tns:ISalaryService_CalculateSalary_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IContractService" type="tns:IContractService">
@@ -52,9 +64,63 @@
       </wsdl:output>
     </wsdl:operation>
   </wsdl:binding>
+  <wsdl:binding name="BasicHttpBinding_ISalaryService" type="tns:ISalaryService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CalculateSalary">
+      <soap:operation soapAction="http://tempuri.org/ISalaryService/CalculateSalary" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpBinding_IContractService1" type="tns:IContractService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CreateContract">
+      <soap:operation soapAction="http://tempuri.org/IContractService/CreateContract" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllContracts">
+      <soap:operation soapAction="http://tempuri.org/IContractService/GetAllContracts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpBinding_ISalaryService1" type="tns:ISalaryService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CalculateSalary">
+      <soap:operation soapAction="http://tempuri.org/ISalaryService/CalculateSalary" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
   <wsdl:service name="ContractService">
     <wsdl:port name="BasicHttpBinding_IContractService" binding="tns:BasicHttpBinding_IContractService">
       <soap:address location="http://localhost:8080/ContractService" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpBinding_ISalaryService" binding="tns:BasicHttpBinding_ISalaryService">
+      <soap:address location="http://localhost:8080/SalaryService" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpBinding_IContractService1" binding="tns:BasicHttpBinding_IContractService1">
+      <soap:address location="http://localhost:8080/" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpBinding_ISalaryService1" binding="tns:BasicHttpBinding_ISalaryService1">
+      <soap:address location="http://localhost:8080/" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

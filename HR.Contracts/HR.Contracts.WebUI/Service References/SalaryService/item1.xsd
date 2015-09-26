@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/HR.Contracts.Shared.Models" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/HR.Contracts.Shared.Models" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:8080/?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/HR.Contracts.Shared.Enums" />
+  <xs:complexType name="ArrayOfColumnFilterInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ColumnFilterInfo" nillable="true" type="tns:ColumnFilterInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfColumnFilterInfo" nillable="true" type="tns:ArrayOfColumnFilterInfo" />
+  <xs:complexType name="ColumnFilterInfo">
+    <xs:sequence>
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/HR.Contracts.Shared.Enums" minOccurs="0" name="Type" type="q1:ColumnFilterType" />
+      <xs:element minOccurs="0" name="Value" nillable="true" type="xs:anyType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ColumnFilterInfo" nillable="true" type="tns:ColumnFilterInfo" />
+</xs:schema>

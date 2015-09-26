@@ -28,7 +28,7 @@ namespace HR.Contracts.UnitTests
             IContractService service = new ContractService(mock.Object, new DefaultSalaryPolicy(), new DefaultSalaryCalculator());
 
             var expected = true;
-            var actual = await service.AddContractAsync(contract);
+            var actual = await service.CreateContractAsync(contract);
 
             mock.Verify(m => m.Add(It.IsAny<Contract>()), Times.Once());
             mock.Verify(m => m.SaveChangesAsync(), Times.Once());
@@ -44,7 +44,7 @@ namespace HR.Contracts.UnitTests
             IContractService service = new ContractService(mock.Object, new DefaultSalaryPolicy(), new DefaultSalaryCalculator());
 
             var expected = false;
-            var actual = await service.AddContractAsync(contract);
+            var actual = await service.CreateContractAsync(contract);
 
             mock.Verify(m => m.Add(It.IsAny<Contract>()), Times.Never());
             mock.Verify(m => m.SaveChangesAsync(), Times.Never());

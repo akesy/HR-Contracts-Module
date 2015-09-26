@@ -117,10 +117,11 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\knockout-3.3.0.js" />
     <Content Include="Scripts\Knockout\BindingHandlers\ko.bindingHandlers.object.js" />
+    <Content Include="Scripts\Models\Contract.js" />
     <Content Include="Scripts\Models\ContractFilter.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <None Include="Service References\ContractService\ContractService.wsdl" />
-    <Content Include="Service References\ContractService\HR.Contracts.WebUI.ContractService.ContractsPage.datasource">
+    <Content Include="Service References\ContractService\HR.Contracts.WebUI.ContractService.DtoContractsPage.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <None Include="Service References\ContractService\item.disco" />
@@ -133,6 +134,17 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <None Include="Service References\SalaryService\ContractService.wsdl" />
+    <Content Include="Service References\SalaryService\HR.Contracts.WebUI.SalaryService.DtoContractsPage.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Service References\SalaryService\item.disco" />
+    <None Include="Service References\SalaryService\configuration91.svcinfo" />
+    <None Include="Service References\SalaryService\configuration.svcinfo" />
+    <None Include="Service References\SalaryService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -141,6 +153,7 @@
     <Compile Include="Constants\DisplayTemplateNames.cs" />
     <Compile Include="Constants\ResourceKeys.cs" />
     <Compile Include="Controllers\ContractController.cs" />
+    <Compile Include="Controllers\SalaryController.cs" />
     <Compile Include="Extensions\HtmlExtensions.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -158,6 +171,11 @@
       <DependentUpon>Labels.resx</DependentUpon>
     </Compile>
     <Compile Include="Service References\ContractService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\SalaryService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -190,6 +208,21 @@
     <Content Include="Views\Shared\DisplayTemplates\LocalizedEnum.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\ContractModel.cshtml" />
     <Content Include="Views\Contract\Create.cshtml" />
+    <None Include="Service References\SalaryService\item.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SalaryService\item1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SalaryService\item2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SalaryService\item3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SalaryService\item4.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -199,12 +232,14 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Salary\" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\ContractService\" />
+    <WCFMetadataStorage Include="Service References\SalaryService\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\Labels.resx">

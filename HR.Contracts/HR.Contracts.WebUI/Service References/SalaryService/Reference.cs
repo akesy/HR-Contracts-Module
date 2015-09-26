@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace HR.Contracts.WebUI.ContractService {
+namespace HR.Contracts.WebUI.SalaryService {
     using System.Runtime.Serialization;
     using System;
     
@@ -116,7 +116,7 @@ namespace HR.Contracts.WebUI.ContractService {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private HR.Contracts.WebUI.ContractService.DtoContract[] ContractsField;
+        private HR.Contracts.WebUI.SalaryService.DtoContract[] ContractsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int TotalRecordsField;
@@ -132,7 +132,7 @@ namespace HR.Contracts.WebUI.ContractService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public HR.Contracts.WebUI.ContractService.DtoContract[] Contracts {
+        public HR.Contracts.WebUI.SalaryService.DtoContract[] Contracts {
             get {
                 return this.ContractsField;
             }
@@ -168,29 +168,29 @@ namespace HR.Contracts.WebUI.ContractService {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ContractService.IContractService")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="SalaryService.IContractService")]
     public interface IContractService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContractService/CreateContract", ReplyAction="http://tempuri.org/IContractService/CreateContractResponse")]
-        bool CreateContract(HR.Contracts.WebUI.ContractService.DtoContract contract);
+        bool CreateContract(HR.Contracts.WebUI.SalaryService.DtoContract contract);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContractService/CreateContract", ReplyAction="http://tempuri.org/IContractService/CreateContractResponse")]
-        System.Threading.Tasks.Task<bool> CreateContractAsync(HR.Contracts.WebUI.ContractService.DtoContract contract);
+        System.Threading.Tasks.Task<bool> CreateContractAsync(HR.Contracts.WebUI.SalaryService.DtoContract contract);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContractService/GetAllContracts", ReplyAction="http://tempuri.org/IContractService/GetAllContractsResponse")]
-        HR.Contracts.WebUI.ContractService.DtoContractsPage GetAllContracts(HR.Contracts.Shared.Models.ColumnFilterInfo[] filterCriteria, int page, int pageSize);
+        HR.Contracts.WebUI.SalaryService.DtoContractsPage GetAllContracts(HR.Contracts.Shared.Models.ColumnFilterInfo[] filterCriteria, int page, int pageSize);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContractService/GetAllContracts", ReplyAction="http://tempuri.org/IContractService/GetAllContractsResponse")]
-        System.Threading.Tasks.Task<HR.Contracts.WebUI.ContractService.DtoContractsPage> GetAllContractsAsync(HR.Contracts.Shared.Models.ColumnFilterInfo[] filterCriteria, int page, int pageSize);
+        System.Threading.Tasks.Task<HR.Contracts.WebUI.SalaryService.DtoContractsPage> GetAllContractsAsync(HR.Contracts.Shared.Models.ColumnFilterInfo[] filterCriteria, int page, int pageSize);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IContractServiceChannel : HR.Contracts.WebUI.ContractService.IContractService, System.ServiceModel.IClientChannel {
+    public interface IContractServiceChannel : HR.Contracts.WebUI.SalaryService.IContractService, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class ContractServiceClient : System.ServiceModel.ClientBase<HR.Contracts.WebUI.ContractService.IContractService>, HR.Contracts.WebUI.ContractService.IContractService {
+    public partial class ContractServiceClient : System.ServiceModel.ClientBase<HR.Contracts.WebUI.SalaryService.IContractService>, HR.Contracts.WebUI.SalaryService.IContractService {
         
         public ContractServiceClient() {
         }
@@ -211,20 +211,67 @@ namespace HR.Contracts.WebUI.ContractService {
                 base(binding, remoteAddress) {
         }
         
-        public bool CreateContract(HR.Contracts.WebUI.ContractService.DtoContract contract) {
+        public bool CreateContract(HR.Contracts.WebUI.SalaryService.DtoContract contract) {
             return base.Channel.CreateContract(contract);
         }
         
-        public System.Threading.Tasks.Task<bool> CreateContractAsync(HR.Contracts.WebUI.ContractService.DtoContract contract) {
+        public System.Threading.Tasks.Task<bool> CreateContractAsync(HR.Contracts.WebUI.SalaryService.DtoContract contract) {
             return base.Channel.CreateContractAsync(contract);
         }
         
-        public HR.Contracts.WebUI.ContractService.DtoContractsPage GetAllContracts(HR.Contracts.Shared.Models.ColumnFilterInfo[] filterCriteria, int page, int pageSize) {
+        public HR.Contracts.WebUI.SalaryService.DtoContractsPage GetAllContracts(HR.Contracts.Shared.Models.ColumnFilterInfo[] filterCriteria, int page, int pageSize) {
             return base.Channel.GetAllContracts(filterCriteria, page, pageSize);
         }
         
-        public System.Threading.Tasks.Task<HR.Contracts.WebUI.ContractService.DtoContractsPage> GetAllContractsAsync(HR.Contracts.Shared.Models.ColumnFilterInfo[] filterCriteria, int page, int pageSize) {
+        public System.Threading.Tasks.Task<HR.Contracts.WebUI.SalaryService.DtoContractsPage> GetAllContractsAsync(HR.Contracts.Shared.Models.ColumnFilterInfo[] filterCriteria, int page, int pageSize) {
             return base.Channel.GetAllContractsAsync(filterCriteria, page, pageSize);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="SalaryService.ISalaryService")]
+    public interface ISalaryService {
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISalaryService/CalculateSalary", ReplyAction="http://tempuri.org/ISalaryService/CalculateSalaryResponse")]
+        decimal CalculateSalary(HR.Contracts.Shared.Enums.ContractType contractType, int experience);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISalaryService/CalculateSalary", ReplyAction="http://tempuri.org/ISalaryService/CalculateSalaryResponse")]
+        System.Threading.Tasks.Task<decimal> CalculateSalaryAsync(HR.Contracts.Shared.Enums.ContractType contractType, int experience);
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public interface ISalaryServiceChannel : HR.Contracts.WebUI.SalaryService.ISalaryService, System.ServiceModel.IClientChannel {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class SalaryServiceClient : System.ServiceModel.ClientBase<HR.Contracts.WebUI.SalaryService.ISalaryService>, HR.Contracts.WebUI.SalaryService.ISalaryService {
+        
+        public SalaryServiceClient() {
+        }
+        
+        public SalaryServiceClient(string endpointConfigurationName) : 
+                base(endpointConfigurationName) {
+        }
+        
+        public SalaryServiceClient(string endpointConfigurationName, string remoteAddress) : 
+                base(endpointConfigurationName, remoteAddress) {
+        }
+        
+        public SalaryServiceClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(endpointConfigurationName, remoteAddress) {
+        }
+        
+        public SalaryServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(binding, remoteAddress) {
+        }
+        
+        public decimal CalculateSalary(HR.Contracts.Shared.Enums.ContractType contractType, int experience) {
+            return base.Channel.CalculateSalary(contractType, experience);
+        }
+        
+        public System.Threading.Tasks.Task<decimal> CalculateSalaryAsync(HR.Contracts.Shared.Enums.ContractType contractType, int experience) {
+            return base.Channel.CalculateSalaryAsync(contractType, experience);
         }
     }
 }

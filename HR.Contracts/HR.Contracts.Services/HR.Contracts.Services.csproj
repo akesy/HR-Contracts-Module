@@ -56,6 +56,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Abstract\IContractService.cs" />
+    <Compile Include="Abstract\ISalaryService.cs" />
     <Compile Include="Concrete\AutoMapperConfig.cs" />
     <Compile Include="Concrete\ContractService.cs" />
     <Compile Include="Dto\DtoContractsPage.cs" />

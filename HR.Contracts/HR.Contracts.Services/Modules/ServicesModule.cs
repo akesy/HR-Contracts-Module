@@ -10,7 +10,7 @@ namespace HR.Contracts.Services.Modules
         {
             base.Load(builder);
 
-            builder.RegisterType<ContractService>().As<IContractService>();
+            builder.RegisterType<ContractService>();
         }
     }
 }
