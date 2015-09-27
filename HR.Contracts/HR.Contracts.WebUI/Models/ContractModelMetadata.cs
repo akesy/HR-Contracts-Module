@@ -14,14 +14,14 @@ namespace HR.Contracts.WebUI.Models
         [Required]
         [Display(Name = ResourceKeys.ContractType, ResourceType = typeof(Labels))]
         [UIHint(DisplayTemplateNames.LocalizedEnum)]
-        public ContractType? Type { get; set; }
+        public ContractType Type { get; set; }
 
         [Required]
         [Display(Name = ResourceKeys.ContractExperience, ResourceType = typeof(Labels))]
-        public int? Experience { get; set; }
+        public int Experience { get; set; }
 
         [Required]
         [Display(Name = ResourceKeys.ContractSalary, ResourceType = typeof(Labels))]
-        public decimal? Salary { get; set; }
+        public decimal Salary { get; set; }
     }
 }

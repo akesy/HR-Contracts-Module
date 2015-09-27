@@ -8,10 +8,10 @@ namespace HR.Contracts.WebUI.Models
     {
         public string Name { get; set; }
 
-        public ContractType? Type { get; set; }
+        public ContractType Type { get; set; }
 
-        public int? Experience { get; set; }
+        public int Experience { get; set; }
 
-        public decimal? Salary { get; set; }
+        public decimal Salary { get; set; }
     }
 }
