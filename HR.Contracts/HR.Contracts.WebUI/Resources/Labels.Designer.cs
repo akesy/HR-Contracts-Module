@@ -61,6 +61,24 @@ namespace HR.Contracts.WebUI.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Moduł kontraktów dla systemu HR.
+        /// </summary>
+        public static string AppName {
+            get {
+                return ResourceManager.GetString("AppName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Powrót do listy.
+        /// </summary>
+        public static string BackToList {
+            get {
+                return ResourceManager.GetString("BackToList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Doświadczenie (w latach).
         /// </summary>
         public static string ContractExperience {
@@ -106,6 +124,15 @@ namespace HR.Contracts.WebUI.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Tworzenie nowego kontraktu.
+        /// </summary>
+        public static string CreateContractTitle {
+            get {
+                return ResourceManager.GetString("CreateContractTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Programiści z 5 letnim stażem.
         /// </summary>
         public static string DevelopersWith5YearsExperience {
@@ -120,6 +147,15 @@ namespace HR.Contracts.WebUI.Resources {
         public static string Filter {
             get {
                 return ResourceManager.GetString("Filter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Lista kontraktów.
+        /// </summary>
+        public static string ListContractsTitle {
+            get {
+                return ResourceManager.GetString("ListContractsTitle", resourceCulture);
             }
         }
         

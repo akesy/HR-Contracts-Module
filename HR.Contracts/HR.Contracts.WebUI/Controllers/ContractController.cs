@@ -1,5 +1,6 @@
-﻿using System;
+﻿using System.Globalization;
 using System.Linq;
+using System.ServiceModel;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 using AutoMapper;
@@ -7,12 +8,14 @@ using HR.Contracts.Shared.Enums;
 using HR.Contracts.Shared.Models;
 using HR.Contracts.WebUI.ContractService;
 using HR.Contracts.WebUI.Models;
+using HR.Contracts.WebUI.Resources;
 
 namespace HR.Contracts.WebUI.Controllers
 {
     public class ContractController : Controller
     {
         private const string ListActionName = "List";
+        private const string SalaryPropertyName = "Salary";
         
         /// <summary>
         /// TODO: Remove hardcoded value.
@@ -35,7 +38,7 @@ namespace HR.Contracts.WebUI.Controllers
                 };
                 return this.View(model);
             }
-            catch (Exception)
+            catch (FaultException)
             {
                 client.Abort();
                 throw;
@@ -57,12 +60,20 @@ namespace HR.Contracts.WebUI.Controllers
                 var client = new ContractServiceClient();
                 try
                 {
-                    await client.CreateContractAsync(contract);
+                    var result = await client.CreateContractAsync(contract);
                     client.Close();
 
-                    return this.RedirectToAction(ListActionName);
+                    if (!result)
+                    {
+                        var errorMessage = string.Format(CultureInfo.CurrentCulture, Messages.TheSalaryValueAndCalculatedDoNotMatch, Labels.ContractSalary);
+                        this.ModelState.AddModelError(SalaryPropertyName, errorMessage);
+                    }
+                    else
+                    {
+                        return this.RedirectToAction(ListActionName);
+                    }
                 }
-                catch (Exception)
+                catch (FaultException)
                 {
                     client.Abort();
                     throw;

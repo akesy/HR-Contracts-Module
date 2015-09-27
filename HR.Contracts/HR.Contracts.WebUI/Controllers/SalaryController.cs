@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System.ServiceModel;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 using HR.Contracts.Shared.Enums;
@@ -18,7 +18,7 @@ namespace HR.Contracts.WebUI.Controllers
 
                 return this.Json(salary, JsonRequestBehavior.AllowGet);
             }
-            catch (Exception)
+            catch (FaultException)
             {
                 client.Abort();
                 throw;

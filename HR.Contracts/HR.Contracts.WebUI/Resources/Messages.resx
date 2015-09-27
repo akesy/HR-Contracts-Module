@@ -117,46 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="AppName" xml:space="preserve">
-    <value>Moduł kontraktów dla systemu HR</value>
-  </data>
-  <data name="BackToList" xml:space="preserve">
-    <value>Powrót do listy</value>
-  </data>
-  <data name="ContractExperience" xml:space="preserve">
-    <value>Doświadczenie (w latach)</value>
-  </data>
-  <data name="ContractName" xml:space="preserve">
-    <value>Nazwa</value>
-  </data>
-  <data name="ContractSalary" xml:space="preserve">
-    <value>Stawka (PLN netto)</value>
-  </data>
-  <data name="ContractType" xml:space="preserve">
-    <value>Typ</value>
-  </data>
-  <data name="Create" xml:space="preserve">
-    <value>Utwórz</value>
-  </data>
-  <data name="CreateContractTitle" xml:space="preserve">
-    <value>Tworzenie nowego kontraktu</value>
-  </data>
-  <data name="DevelopersWith5YearsExperience" xml:space="preserve">
-    <value>Programiści z 5 letnim stażem</value>
-  </data>
-  <data name="Filter" xml:space="preserve">
-    <value>Filtruj</value>
-  </data>
-  <data name="ListContractsTitle" xml:space="preserve">
-    <value>Lista kontraktów</value>
-  </data>
-  <data name="ResetFilters" xml:space="preserve">
-    <value>Resetuj filtry</value>
-  </data>
-  <data name="SalaryGreaterThan5000" xml:space="preserve">
-    <value>Kontrakty ze stawką &gt;5000</value>
-  </data>
-  <data name="SelectContractType" xml:space="preserve">
-    <value>Wybierz typ kontraktu</value>
+  <data name="TheSalaryValueAndCalculatedDoNotMatch" xml:space="preserve">
+    <value>Wartość pola {0} jest niepoprawna. To pole jest wyliczane automatycznie i nie może być modyifkowane.</value>
   </data>
 </root>

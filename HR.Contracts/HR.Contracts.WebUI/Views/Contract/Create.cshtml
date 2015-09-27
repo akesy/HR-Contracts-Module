@@ -1,7 +1,7 @@
 ﻿@model ContractModel
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = Labels.CreateContractTitle;
     const string createContractFormId = "create-contract-form";
 }
 
@@ -10,7 +10,7 @@
 @using HR.Contracts.WebUI.Models;
 @using HR.Contracts.WebUI.Resources;
 
-<h2>Create</h2>
+<h2>@Labels.CreateContractTitle</h2>
 
 @using (Html.BeginForm("Create", "Contract", FormMethod.Post, new { id = createContractFormId }))
 {
@@ -54,12 +54,13 @@
             @Html.LabelFor(model => model.Salary)
         </div>
         <div class="col-sm-6">
-            @Html.TextBoxFor(model => model.Salary, new { data_bind = "value: salary" })<br />
+            @Html.TextBoxFor(model => model.Salary, new { data_bind = "value: salary", @readonly = "readonly" })<br />
             @Html.ValidationMessageFor(model => model.Salary)
         </div>
     </div>
     <input class="btn btn-primary" type="submit" value="@Labels.Create" />
 }
+@Html.ActionLink(Labels.BackToList, "List")
 
 <script type="text/javascript" src="~/Scripts/Models/Contract.js"></script>
 <script type="text/javascript">

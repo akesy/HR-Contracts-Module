@@ -6,11 +6,11 @@
 @using HR.Contracts.WebUI.Resources;
 
 @{
-    ViewBag.Title = "List";
+    ViewBag.Title = Labels.ListContractsTitle;
     const string contractsId = "contracts";
 }
 
-<h2>List</h2>
+<h2>@Labels.ListContractsTitle</h2>
 
 <div id="contracts">
     <script type="text/html" data-bind="object: urls">
