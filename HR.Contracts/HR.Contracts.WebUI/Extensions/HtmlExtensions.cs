@@ -3,16 +3,17 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Text;
-using System.Web;
 using System.Web.Mvc;
 using HR.Contracts.Shared.Enums;
-using HR.Contracts.Shared.Models;
 using HR.Contracts.WebUI.Models;
 
 namespace HR.Contracts.WebUI.Extensions
 {
     public static class HtmlExtensions
     {
+        private const string CurrentPageSelectedCssClass = "active";
+        private const string PaginationContainerCssClass = "pagination";
+
         public static MvcHtmlString PageLinks(this HtmlHelper html, PagingInfo pagingInfo, Func<int, string> pageUrl)
         {
             var result = new StringBuilder();
@@ -26,14 +27,14 @@ namespace HR.Contracts.WebUI.Extensions
 
                 if (i == pagingInfo.CurrentPage)
                 {
-                    li.AddCssClass("active");
+                    li.AddCssClass(CurrentPageSelectedCssClass);
                 }
 
                 result.Append(li.ToString());
             }
 
             var ul = new TagBuilder("ul");
-            ul.AddCssClass("pagination");
+            ul.AddCssClass(PaginationContainerCssClass);
             ul.InnerHtml = result.ToString();
 
             return MvcHtmlString.Create(ul.ToString());
